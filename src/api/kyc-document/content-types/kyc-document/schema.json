@@ -1,0 +1,116 @@
+{
+  "kind": "collectionType",
+  "collectionName": "kyc_documents",
+  "info": {
+    "singularName": "kyc-document",
+    "pluralName": "kyc-documents",
+    "displayName": "Kyc Document"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "pan_card": {
+      "type": "string"
+    },
+    "aadhar_card": {
+      "type": "string"
+    },
+    "account_number": {
+      "type": "string"
+    },
+    "ifsc_code": {
+      "type": "string"
+    },
+    "pan_doc": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "aadhar_doc": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "passbook_doc": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "kyc_documents"
+    },
+    "address_proof_doc": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "kyc_status": {
+      "type": "enumeration",
+      "default": "PENDING",
+      "enum": [
+        "PENDING",
+        "IN_PROGRESS",
+        "APPROVED",
+        "REJECTED"
+      ]
+    },
+    "admin_remarks": {
+      "type": "string"
+    },
+    "payouts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payout.payout",
+      "mappedBy": "kyc_document"
+    },
+    "bank_name": {
+      "type": "string"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "address_proof_doc_path": {
+      "type": "string"
+    },
+    "pan_doc_path": {
+      "type": "string"
+    },
+    "photo_doc_path": {
+      "type": "string"
+    },
+    "id_proof_doc_path": {
+      "type": "string"
+    },
+    "passbook_doc_path": {
+      "type": "string"
+    },
+    "upi_id": {
+      "type": "string"
+    }
+  }
+}

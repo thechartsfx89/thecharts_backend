@@ -1,0 +1,243 @@
+{
+  "kind": "collectionType",
+  "collectionName": "member_payout_details",
+  "info": {
+    "singularName": "member-payout-detail",
+    "pluralName": "member-payout-details",
+    "displayName": "Member Payout Details"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "payid": {
+      "type": "integer"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "lgray": {
+      "type": "integer"
+    },
+    "rgray": {
+      "type": "integer"
+    },
+    "conflside": {
+      "type": "integer"
+    },
+    "confrside": {
+      "type": "integer"
+    },
+    "lcount": {
+      "type": "integer"
+    },
+    "rcount": {
+      "type": "integer"
+    },
+    "paidpair": {
+      "type": "integer"
+    },
+    "slabpair": {
+      "type": "integer"
+    },
+    "flushpair": {
+      "type": "integer"
+    },
+    "lpv": {
+      "type": "decimal"
+    },
+    "rpv": {
+      "type": "decimal"
+    },
+    "paidpv": {
+      "type": "decimal"
+    },
+    "slabpv": {
+      "type": "decimal"
+    },
+    "flushpv": {
+      "type": "decimal"
+    },
+    "lproductpv": {
+      "type": "decimal"
+    },
+    "rproductpv": {
+      "type": "decimal"
+    },
+    "paidproductpv": {
+      "type": "decimal"
+    },
+    "directpv": {
+      "type": "decimal"
+    },
+    "directincome": {
+      "type": "decimal"
+    },
+    "levelincomed": {
+      "type": "decimal"
+    },
+    "levelincomeb": {
+      "type": "decimal"
+    },
+    "pvincome": {
+      "type": "decimal"
+    },
+    "totalincome": {
+      "type": "decimal"
+    },
+    "designation": {
+      "type": "string"
+    },
+    "designationdate": {
+      "type": "datetime"
+    },
+    "paid": {
+      "type": "integer"
+    },
+    "diff_income": {
+      "type": "decimal"
+    },
+    "override_income": {
+      "type": "decimal"
+    },
+    "network_income": {
+      "type": "decimal"
+    },
+    "singlelegincome": {
+      "type": "decimal"
+    },
+    "singlecount": {
+      "type": "integer"
+    },
+    "singlelegdeduction": {
+      "type": "decimal"
+    },
+    "pbv": {
+      "type": "decimal"
+    },
+    "gbv": {
+      "type": "decimal"
+    },
+    "levelincome": {
+      "type": "decimal"
+    },
+    "l1count": {
+      "type": "integer"
+    },
+    "l1income": {
+      "type": "decimal"
+    },
+    "l2count": {
+      "type": "integer"
+    },
+    "l2income": {
+      "type": "decimal"
+    },
+    "l3count": {
+      "type": "integer"
+    },
+    "l3income": {
+      "type": "decimal"
+    },
+    "l4count": {
+      "type": "integer"
+    },
+    "l4income": {
+      "type": "decimal"
+    },
+    "l5count": {
+      "type": "integer"
+    },
+    "l5income": {
+      "type": "decimal"
+    },
+    "l6count": {
+      "type": "integer"
+    },
+    "l6income": {
+      "type": "decimal"
+    },
+    "l7count": {
+      "type": "integer"
+    },
+    "l7income": {
+      "type": "decimal"
+    },
+    "l8count": {
+      "type": "integer"
+    },
+    "l8income": {
+      "type": "decimal"
+    },
+    "l9count": {
+      "type": "integer"
+    },
+    "l9income": {
+      "type": "decimal"
+    },
+    "l10count": {
+      "type": "integer"
+    },
+    "l10income": {
+      "type": "decimal"
+    },
+    "tdsrate": {
+      "type": "decimal"
+    },
+    "tdsamount": {
+      "type": "decimal"
+    },
+    "hrate": {
+      "type": "decimal"
+    },
+    "hamount": {
+      "type": "decimal"
+    },
+    "leadershipincome": {
+      "type": "decimal"
+    },
+    "rbv": {
+      "type": "decimal"
+    },
+    "tds": {
+      "type": "decimal"
+    },
+    "tdswp": {
+      "type": "decimal"
+    },
+    "servicecharge": {
+      "type": "decimal"
+    },
+    "netamount": {
+      "type": "decimal"
+    },
+    "dbv": {
+      "type": "decimal"
+    },
+    "diffincome": {
+      "type": "decimal"
+    },
+    "totallside": {
+      "type": "integer"
+    },
+    "totalrside": {
+      "type": "integer"
+    },
+    "firstpair": {
+      "type": "integer"
+    },
+    "lefttail": {
+      "type": "integer"
+    },
+    "righttail": {
+      "type": "integer"
+    },
+    "boosterincome": {
+      "type": "decimal"
+    },
+    "paircutting": {
+      "type": "integer"
+    }
+  }
+}

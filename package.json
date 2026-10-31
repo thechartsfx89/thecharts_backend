@@ -1,0 +1,50 @@
+{
+  "name": "educandle",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A Strapi application",
+  "scripts": {
+    "build": "strapi build",
+    "console": "strapi console",
+    "deploy": "strapi deploy",
+    "dev": "strapi develop",
+    "develop": "strapi develop",
+    "start": "strapi start",
+    "strapi": "strapi",
+    "upgrade": "npx @strapi/upgrade latest",
+    "upgrade:dry": "npx @strapi/upgrade latest --dry"
+  },
+  "dependencies": {
+    "@strapi/plugin-cloud": "5.23.4",
+    "@strapi/plugin-users-permissions": "5.23.4",
+    "@strapi/provider-email-nodemailer": "^5.27.0",
+    "@strapi/provider-upload-aws-s3": "^5.33.3",
+    "@strapi/strapi": "5.23.4",
+    "bcrypt": "^6.0.0",
+    "better-sqlite3": "^12.4.1",
+    "koa-static": "^5.0.0",
+    "mssql": "^12.2.0",
+    "pg": "8.8.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-router-dom": "^6.0.0",
+    "sharp": "^0.34.5",
+    "socket.io": "^4.8.1",
+    "styled-components": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "baseline-browser-mapping": "^2.9.17",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18.0.0 <=22.x.x",
+    "npm": ">=6.0.0"
+  },
+  "strapi": {
+    "uuid": "8d12e8e2-5444-4c3c-895c-db011cdf08ff",
+    "installId": "6565bb6e11eddb10a3b9326d78c89415bda89909b7193ef2288bea27769a170f"
+  }
+}

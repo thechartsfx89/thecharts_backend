@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "member_level_join_detail_binaries",
+  "info": {
+    "singularName": "member-level-join-detail-binary",
+    "pluralName": "member-level-join-detail-binaries",
+    "displayName": "Member Level Join Details Binaries"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

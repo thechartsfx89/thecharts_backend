@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "student_libraries",
+  "info": {
+    "singularName": "student-library",
+    "pluralName": "student-libraries",
+    "displayName": "Student Library"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "documents_file": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "student_libraries"
+    }
+  }
+}

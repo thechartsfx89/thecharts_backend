@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "webinars",
+  "info": {
+    "singularName": "webinar",
+    "pluralName": "webinars",
+    "displayName": "Webinar"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "start_time": {
+      "type": "datetime"
+    },
+    "duration": {
+      "type": "decimal"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "webinar",
+        "meeting",
+        "ADVANCED_WEBINAR"
+      ]
+    },
+    "url": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "course_categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::course-category.course-category",
+      "mappedBy": "webinars"
+    },
+    "webinar_by": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::mentor.mentor",
+      "inversedBy": "webinars"
+    }
+  }
+}

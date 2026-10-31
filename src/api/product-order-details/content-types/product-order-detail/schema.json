@@ -1,0 +1,153 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_order_details",
+  "info": {
+    "singularName": "product-order-detail",
+    "pluralName": "product-order-details",
+    "displayName": "Product Order Details"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "MID": {
+      "type": "integer"
+    },
+
+    "MPOID": {
+      "type": "integer"
+    },
+
+    "ProductID": {
+      "type": "integer"
+    },
+
+    "MRP": {
+      "type": "decimal"
+    },
+
+    "DP": {
+      "type": "decimal"
+    },
+
+    "StockistProComm": {
+      "type": "decimal"
+    },
+
+    "VATRate": {
+      "type": "decimal"
+    },
+
+    "VAT": {
+      "type": "decimal"
+    },
+
+    "TotalAmount": {
+      "type": "decimal"
+    },
+
+    "Quantity": {
+      "type": "integer"
+    },
+
+    "Bv": {
+      "type": "decimal"
+    },
+
+    "discount": {
+      "type": "decimal"
+    },
+
+    "companyDiscount": {
+      "type": "decimal"
+    },
+
+    "ShipCharge": {
+      "type": "decimal"
+    },
+
+    "Size": {
+      "type": "string"
+    },
+
+    "Color": {
+      "type": "string"
+    },
+
+    "PFund": {
+      "type": "decimal"
+    },
+
+    "Product_Discription": {
+      "type": "text"
+    },
+
+    "slid": {
+      "type": "integer"
+    },
+
+    "MarketingExpense": {
+      "type": "decimal"
+    },
+
+    "discountPer": {
+      "type": "decimal"
+    },
+
+    "points": {
+      "type": "decimal"
+    },
+
+    "DirectDiscount": {
+      "type": "decimal"
+    },
+
+    "directDiscountRate": {
+      "type": "decimal"
+    },
+
+    "categoryid": {
+      "type": "integer"
+    },
+
+    "fodp": {
+      "type": "decimal"
+    },
+
+    "ProductType": {
+      "type": "string"
+    },
+
+    "GST": {
+      "type": "decimal"
+    },
+
+    "IGST": {
+      "type": "decimal"
+    },
+
+    "CGST": {
+      "type": "decimal"
+    },
+
+    "SGST": {
+      "type": "decimal"
+    },
+
+    "SWHP": {
+      "type": "decimal"
+    },
+
+    "OWHP": {
+      "type": "decimal"
+    },
+
+    "ExpiryDate": {
+      "type": "date"
+    },
+
+    "legacy_payload": {
+      "type": "json"
+    }
+  }
+}

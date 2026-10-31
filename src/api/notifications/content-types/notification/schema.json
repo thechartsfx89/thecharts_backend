@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "notifications",
+  "info": {
+    "singularName": "notification",
+    "pluralName": "notifications",
+    "displayName": "Notification",
+    "description": "Stores notification logs for emails like payment success and demo booking"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "errorMessage": {
+      "type": "text"
+    }
+  }
+}

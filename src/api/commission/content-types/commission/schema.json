@@ -1,0 +1,105 @@
+{
+  "kind": "collectionType",
+  "collectionName": "commissions",
+  "info": {
+    "singularName": "commission",
+    "pluralName": "commissions",
+    "displayName": "Commission"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "level": {
+      "type": "integer"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "earnedAt": {
+      "type": "datetime"
+    },
+    "paidAt": {
+      "type": "datetime"
+    },
+    "transactionId": {
+      "type": "biginteger"
+    },
+    "transaction_for": {
+      "type": "enumeration",
+      "enum": [
+        "LEVEL_INCOME",
+        "CLUB_INCOME",
+        "WITHDRAW",
+        "DEDUCT"
+      ]
+    },
+    "transaction_status": {
+      "type": "enumeration",
+      "enum": [
+        "SUCCESS",
+        "FAILED",
+        "PENDING",
+        "REJECTED"
+      ]
+    },
+    "earner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "commission_earner"
+    },
+    "sourceUser": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "commission_source_user"
+    },
+    "club": {
+      "type": "enumeration",
+      "enum": [
+        "CLUB_50",
+        "CLUB_250",
+        "CLUB_500"
+      ]
+    },
+    "wallet": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wallet.wallet",
+      "inversedBy": "commissions"
+    },
+    "transaction_history": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::transaction-history.transaction-history",
+      "mappedBy": "commission"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "remark": {
+      "type": "string"
+    },
+    "admin_comment": {
+      "type": "string"
+    },
+    "transaction_type": {
+      "type": "enumeration",
+      "enum": [
+        "CREDIT",
+        "DEBIT"
+      ]
+    },
+    "credit": {
+      "type": "decimal"
+    },
+    "debit": {
+      "type": "decimal"
+    },
+    "tramount": {
+      "type": "decimal"
+    }
+  }
+}

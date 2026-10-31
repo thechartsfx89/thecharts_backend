@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "member_level_binaries",
+  "info": {
+    "singularName": "member-level-binary",
+    "pluralName": "member-level-binaries",
+    "displayName": "Member Level Binary"
+  },
+  "options": {
+    "comment": ""
+  },
+  "attributes": {
+    "MLID": {
+      "type": "integer"
+    },
+    "RegNo": {
+      "type": "string"
+    },
+    "Levels": {
+      "type": "integer"
+    },
+    "tlCount": {
+      "type": "integer"
+    },
+    "rlCount": {
+      "type": "integer"
+    },
+    "tlIncome": {
+      "type": "decimal"
+    },
+    "rlIncome": {
+      "type": "decimal"
+    },
+    "mlActive": {
+      "type": "boolean"
+    },
+    "paid": {
+      "type": "boolean"
+    },
+    "payid": {
+      "type": "integer"
+    },
+    "paid1": {
+      "type": "boolean"
+    },
+    "paid2": {
+      "type": "boolean"
+    }
+  }
+}

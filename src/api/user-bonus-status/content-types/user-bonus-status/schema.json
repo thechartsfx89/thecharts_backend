@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_bonus_statuses",
+  "info": {
+    "singularName": "user-bonus-status",
+    "pluralName": "user-bonus-statuses",
+    "displayName": "Level Income Window"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "user_bonus_status"
+    },
+    "bonusRule": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::bonus-rule.bonus-rule",
+      "inversedBy": "user_bonus_status"
+    },
+    "activatedAt": {
+      "type": "datetime"
+    },
+    "isActive": {
+      "type": "boolean"
+    }
+  }
+}

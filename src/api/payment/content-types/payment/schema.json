@@ -1,0 +1,135 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payments",
+  "info": {
+    "singularName": "payment",
+    "pluralName": "payments",
+    "displayName": "Payment"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "payment_id": {
+      "type": "uid"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "payments"
+    },
+    "course": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::recorderd-lecture.recorderd-lecture",
+      "inversedBy": "payments"
+    },
+    "total_amount": {
+      "type": "decimal"
+    },
+    "payment_mode": {
+      "type": "enumeration",
+      "enum": [
+        "RAZORPAY",
+        "HDFC",
+        "DIGITAL_PAYMENT",
+        "BANK_DEPOSIT",
+        "ONLINE_TRANSFER",
+        "CASH"
+      ]
+    },
+    "payment_status": {
+      "type": "enumeration",
+      "default": "UNDER_VERIFICATION",
+      "enum": [
+        "SUCCESS",
+        "FAILED",
+        "REJECTED",
+        "PENDING",
+        "UNDER_VERIFICATION",
+        "REFUND_REQ",
+        "REFUNDED"
+      ]
+    },
+    "order_id": {
+      "type": "uid"
+    },
+    "purchased_course": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::purchased-course.purchased-course",
+      "inversedBy": "payment"
+    },
+    "refund": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::refund.refund",
+      "inversedBy": "payment"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "invoice_no": {
+      "type": "string"
+    },
+    "payment_date": {
+      "type": "datetime"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "district": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "name": {
+      "type": "string"
+    },
+    "pincode": {
+      "type": "string"
+    },
+    "gst": {
+      "type": "decimal"
+    },
+    "cgst": {
+      "type": "decimal"
+    },
+    "sgst": {
+      "type": "decimal"
+    },
+    "base_price": {
+      "type": "decimal"
+    },
+    "payment_receipt": {
+      "type": "string"
+    },
+    "bank_name": {
+      "type": "string"
+    },
+    "ref_no": {
+      "type": "string"
+    },
+    "order_no": {
+      "type": "string"
+    },
+    "mpoid": {
+      "type": "string"
+    },
+    "transaction_id": {
+      "type": "string"
+    },
+    "admin_comment": {
+      "type": "string"
+    }
+  }
+}

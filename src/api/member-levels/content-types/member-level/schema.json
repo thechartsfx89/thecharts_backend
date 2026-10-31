@@ -1,0 +1,62 @@
+
+{
+  "kind": "collectionType",
+  "collectionName": "member_levels",
+  "info": {
+    "singularName": "member-level",
+    "pluralName": "member-levels",
+    "displayName": "Member Levels"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "mlid": {
+      "type": "integer"
+    },
+
+    "regno": {
+      "type": "string"
+    },
+
+    "levels": {
+      "type": "integer"
+    },
+
+    "tlcount": {
+      "type": "integer"
+    },
+
+    "rlcount": {
+      "type": "integer"
+    },
+
+    "tlincome": {
+      "type": "decimal"
+    },
+
+    "rlincome": {
+      "type": "decimal"
+    },
+
+    "mlactive": {
+      "type": "boolean"
+    },
+
+    "paid": {
+      "type": "boolean"
+    },
+
+    "payid": {
+      "type": "integer"
+    },
+
+    "paid1": {
+      "type": "boolean"
+    },
+
+    "paid2": {
+      "type": "boolean"
+    }
+  }
+}

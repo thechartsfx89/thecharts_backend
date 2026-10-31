@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clubs",
+  "info": {
+    "singularName": "club",
+    "pluralName": "clubs",
+    "displayName": "Club Income Rule"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "enumeration",
+      "enum": [
+        "CLUB_50",
+        "CLUB_250",
+        "CLUB_500"
+      ]
+    },
+    "requiredReferrals": {
+      "type": "integer"
+    },
+    "amountPerAdmission": {
+      "type": "decimal"
+    },
+    "durationMonths": {
+      "type": "integer"
+    },
+    "user_club_status": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-club-status.user-club-status",
+      "mappedBy": "club"
+    }
+  }
+}

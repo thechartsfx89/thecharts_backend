@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "video_progresses",
+  "info": {
+    "singularName": "video-progress",
+    "pluralName": "video-progresses",
+    "displayName": "Video Progress"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "video_progresses"
+    },
+    "video_id": {
+      "type": "string"
+    },
+    "current_time": {
+      "type": "decimal"
+    },
+    "total_played": {
+      "type": "decimal"
+    },
+    "total_covered": {
+      "type": "decimal"
+    },
+    "recorderd_lecture": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::recorderd-lecture.recorderd-lecture"
+    },
+    "module_id": {
+      "type": "string",
+      "required": true
+    },
+    "purchased_course": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::purchased-course.purchased-course",
+      "inversedBy": "video_progresses"
+    },
+    "module": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course-module.course-module",
+      "inversedBy": "video_progresses"
+    }
+  }
+}

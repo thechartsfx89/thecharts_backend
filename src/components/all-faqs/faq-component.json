@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_all_faqs_faq_components",
+  "info": {
+    "displayName": "Faq Component"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "text"
+    },
+    "answer": {
+      "type": "blocks"
+    }
+  },
+  "config": {}
+}

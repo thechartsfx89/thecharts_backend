@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_all_levels_levelcs",
+  "info": {
+    "displayName": "levelc"
+  },
+  "options": {},
+  "attributes": {
+    "leve": {
+      "type": "component",
+      "component": "all-levels.all-levels-component",
+      "repeatable": true
+    }
+  },
+  "config": {}
+}

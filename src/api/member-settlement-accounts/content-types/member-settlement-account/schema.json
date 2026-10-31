@@ -1,0 +1,204 @@
+{
+  "kind": "collectionType",
+  "collectionName": "member_settlement_accounts",
+  "info": {
+    "singularName": "member-settlement-account",
+    "pluralName": "member-settlement-accounts",
+    "displayName": "Member Settlement Accounts"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "acid": {
+      "type": "integer"
+    },
+    "payid": {
+      "type": "integer"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "transdate": {
+      "type": "datetime"
+    },
+    "rid": {
+      "type": "integer"
+    },
+    "credit": {
+      "type": "decimal"
+    },
+    "debit": {
+      "type": "decimal"
+    },
+    "crdb": {
+      "type": "string"
+    },
+    "transtype": {
+      "type": "string"
+    },
+    "trcode": {
+      "type": "string"
+    },
+    "trdate": {
+      "type": "datetime"
+    },
+    "tramount": {
+      "type": "decimal"
+    },
+    "trkid": {
+      "type": "integer"
+    },
+    "trqty": {
+      "type": "integer"
+    },
+    "trappdate": {
+      "type": "datetime"
+    },
+    "trmobile": {
+      "type": "string"
+    },
+    "trsp": {
+      "type": "string"
+    },
+    "trct": {
+      "type": "string"
+    },
+    "trrtype": {
+      "type": "string"
+    },
+    "trappby": {
+      "type": "string"
+    },
+    "couponno": {
+      "type": "string"
+    },
+    "paymode": {
+      "type": "string"
+    },
+    "remark": {
+      "type": "text"
+    },
+    "trstatus": {
+      "type": "integer"
+    },
+    "tdsrate": {
+      "type": "decimal"
+    },
+    "lockforpayment": {
+      "type": "boolean"
+    },
+    "tdsamount": {
+      "type": "decimal"
+    },
+    "lockfordisplay": {
+      "type": "boolean"
+    },
+    "handlingcharge": {
+      "type": "decimal"
+    },
+    "handlingrate": {
+      "type": "decimal"
+    },
+    "payidsindex": {
+      "type": "integer"
+    },
+    "othercharge": {
+      "type": "decimal"
+    },
+    "netpayable": {
+      "type": "decimal"
+    },
+    "adjustment": {
+      "type": "decimal"
+    },
+    "paid": {
+      "type": "integer"
+    },
+    "transno": {
+      "type": "string"
+    },
+    "paymentdate": {
+      "type": "datetime"
+    },
+    "refno": {
+      "type": "string"
+    },
+    "bankname": {
+      "type": "string"
+    },
+    "seen": {
+      "type": "boolean"
+    },
+    "accountno": {
+      "type": "string"
+    },
+    "accountname": {
+      "type": "string"
+    },
+    "accounttype": {
+      "type": "string"
+    },
+    "branchname": {
+      "type": "string"
+    },
+    "ip": {
+      "type": "string"
+    },
+    "branchcode": {
+      "type": "string"
+    },
+    "ifsccode": {
+      "type": "string"
+    },
+    "swiftcode": {
+      "type": "string"
+    },
+    "bid": {
+      "type": "integer"
+    },
+    "levelincomerp": {
+      "type": "decimal"
+    },
+    "mpoid": {
+      "type": "integer"
+    },
+    "requestno": {
+      "type": "string"
+    },
+    "brequestno": {
+      "type": "string"
+    },
+    "transferid": {
+      "type": "string"
+    },
+    "impsrefno": {
+      "type": "string"
+    },
+    "referenceno": {
+      "type": "string"
+    },
+    "banktransid": {
+      "type": "string"
+    },
+    "clientid": {
+      "type": "string"
+    },
+    "transferstatus": {
+      "type": "string"
+    },
+    "empirecallsid": {
+      "type": "string"
+    },
+    "transactionid": {
+      "type": "string"
+    },
+    "errormessage": {
+      "type": "text"
+    },
+    "rstatus": {
+      "type": "string"
+    }
+  }
+}

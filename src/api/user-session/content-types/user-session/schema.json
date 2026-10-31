@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_sessions",
+  "info": {
+    "singularName": "user-session",
+    "pluralName": "user-sessions",
+    "displayName": "User Session"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "string",
+      "required": true
+    },
+    "token": {
+      "type": "text",
+      "required": true,
+      "unique": false
+    },
+    "device_info": {
+      "type": "string"
+    },
+    "ip_address": {
+      "type": "text"
+    },
+    "expires_at": {
+      "type": "datetime"
+    },
+    "is_active": {
+      "type": "boolean"
+    },
+    "users": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user"
+    },
+    "device_id": {
+      "type": "string"
+    }
+  }
+}

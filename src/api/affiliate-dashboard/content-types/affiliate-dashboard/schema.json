@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "affiliate_dashboards",
+  "info": {
+    "singularName": "affiliate-dashboard",
+    "pluralName": "affiliate-dashboards",
+    "displayName": "Affiliate Dashboard"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "confirm_affiliate_payment": {
+      "type": "boolean"
+    }
+  }
+}

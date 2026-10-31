@@ -1,0 +1,495 @@
+{
+  "kind": "collectionType",
+  "collectionName": "member_masters",
+  "info": {
+    "singularName": "member-master",
+    "pluralName": "member-masters",
+    "displayName": "Member Master"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "regno": {
+      "type": "string"
+    },
+    "memcode": {
+      "type": "string"
+    },
+    "loginid": {
+      "type": "string"
+    },
+    "randomid": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "fname": {
+      "type": "string"
+    },
+    "lname": {
+      "type": "string"
+    },
+    "nameonpan": {
+      "type": "string"
+    },
+    "fat_husname": {
+      "type": "string"
+    },
+    "dob": {
+      "type": "date"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "mstatus": {
+      "type": "string"
+    },
+    "firsts_qid": {
+      "type": "string"
+    },
+    "firsts_ans": {
+      "type": "string"
+    },
+    "directmembers": {
+      "type": "integer"
+    },
+    "corebank": {
+      "type": "string"
+    },
+    "accountno": {
+      "type": "string"
+    },
+    "corebankcity": {
+      "type": "string"
+    },
+    "nameonaccount": {
+      "type": "string"
+    },
+    "ifsccode": {
+      "type": "string"
+    },
+    "branchcode": {
+      "type": "string"
+    },
+    "qualification": {
+      "type": "string"
+    },
+    "profession": {
+      "type": "string"
+    },
+    "address": {
+      "type": "text"
+    },
+    "address2": {
+      "type": "text"
+    },
+    "landmark": {
+      "type": "string"
+    },
+    "cid": {
+      "type": "integer"
+    },
+    "sid": {
+      "type": "integer"
+    },
+    "ostate": {
+      "type": "string"
+    },
+    "mssql_ctid": {
+      "type": "string"
+    },
+    "ocity": {
+      "type": "string"
+    },
+    "district": {
+      "type": "string"
+    },
+    "brid": {
+      "type": "integer"
+    },
+    "branch": {
+      "type": "string"
+    },
+    "pincode": {
+      "type": "string"
+    },
+    "mempan": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "fax": {
+      "type": "string"
+    },
+    "emailid": {
+      "type": "string"
+    },
+    "kid": {
+      "type": "integer"
+    },
+    "kitprice": {
+      "type": "decimal"
+    },
+    "kitbv": {
+      "type": "decimal"
+    },
+    "kitpv": {
+      "type": "decimal"
+    },
+    "paymentmode": {
+      "type": "string"
+    },
+    "chk_dft_ref_no": {
+      "type": "string"
+    },
+    "nomname": {
+      "type": "string"
+    },
+    "relation": {
+      "type": "string"
+    },
+    "nomdob": {
+      "type": "date"
+    },
+    "regdate": {
+      "type": "date"
+    },
+    "doc": {
+      "type": "date"
+    },
+    "regpayno": {
+      "type": "string"
+    },
+    "confpayno": {
+      "type": "string"
+    },
+    "dlpayid": {
+      "type": "string"
+    },
+    "firstpassword": {
+      "type": "string"
+    },
+    "securitycode": {
+      "type": "string"
+    },
+    "introregno": {
+      "type": "string"
+    },
+    "introside": {
+      "type": "string"
+    },
+    "introposm": {
+      "type": "string"
+    },
+    "depthsm": {
+      "type": "integer"
+    },
+    "parentregnob": {
+      "type": "string"
+    },
+    "parentsideb": {
+      "type": "string"
+    },
+    "parentposb": {
+      "type": "string"
+    },
+    "depthsb": {
+      "type": "integer"
+    },
+    "joinas": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "chk_dft_date": {
+      "type": "date"
+    },
+    "commentonactive": {
+      "type": "text"
+    },
+    "updateby": {
+      "type": "string"
+    },
+    "updatedate": {
+      "type": "date"
+    },
+    "blevel": {
+      "type": "integer"
+    },
+    "ldirect": {
+      "type": "integer"
+    },
+    "rdirect": {
+      "type": "integer"
+    },
+    "pcollectby": {
+      "type": "string"
+    },
+    "spid": {
+      "type": "string"
+    },
+    "mbentry": {
+      "type": "string"
+    },
+    "reflection1": {
+      "type": "string"
+    },
+    "inboardregno": {
+      "type": "string"
+    },
+    "reflection2": {
+      "type": "string"
+    },
+    "boardstatus": {
+      "type": "string"
+    },
+    "inboard": {
+      "type": "string"
+    },
+    "seen": {
+      "type": "boolean"
+    },
+    "profileimage": {
+      "type": "string"
+    },
+    "lvlid": {
+      "type": "integer"
+    },
+    "introreflecttoregno": {
+      "type": "string"
+    },
+    "introrefwing": {
+      "type": "string"
+    },
+    "reftoregno": {
+      "type": "string"
+    },
+    "reflegside": {
+      "type": "string"
+    },
+    "kycuuploadstatus": {
+      "type": "string"
+    },
+    "distname": {
+      "type": "string"
+    },
+    "tempdob": {
+      "type": "date"
+    },
+    "document_attest": {
+      "type": "string"
+    },
+    "bank_check": {
+      "type": "string"
+    },
+    "pan_check": {
+      "type": "string"
+    },
+    "payment_release_approval": {
+      "type": "string"
+    },
+    "nomidtype": {
+      "type": "string"
+    },
+    "nomidno": {
+      "type": "string"
+    },
+    "igtserialno": {
+      "type": "string"
+    },
+    "productname": {
+      "type": "string"
+    },
+    "purchedate": {
+      "type": "date"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "useridtype": {
+      "type": "string"
+    },
+    "useridno": {
+      "type": "string"
+    },
+    "isdcode": {
+      "type": "string"
+    },
+    "proplocationid": {
+      "type": "string"
+    },
+    "paymode": {
+      "type": "string"
+    },
+    "refno": {
+      "type": "string"
+    },
+    "bankname": {
+      "type": "string"
+    },
+    "refdate": {
+      "type": "date"
+    },
+    "branchname": {
+      "type": "string"
+    },
+    "branchcity": {
+      "type": "string"
+    },
+    "paychqno": {
+      "type": "string"
+    },
+    "paychqdate": {
+      "type": "date"
+    },
+    "companybank": {
+      "type": "string"
+    },
+    "productcode": {
+      "type": "string"
+    },
+    "accounttype": {
+      "type": "string"
+    },
+    "bankaddress": {
+      "type": "string"
+    },
+    "aadhaarno": {
+      "type": "string"
+    },
+    "parentregnom": {
+      "type": "string"
+    },
+    "ppositionm": {
+      "type": "string"
+    },
+    "parentposm": {
+      "type": "string"
+    },
+    "childcount": {
+      "type": "integer"
+    },
+    "requestno": {
+      "type": "string"
+    },
+    "apimobile": {
+      "type": "string"
+    },
+    "brequestno": {
+      "type": "string"
+    },
+    "apiacno": {
+      "type": "string"
+    },
+    "membership": {
+      "type": "string"
+    },
+    "ezokart": {
+      "type": "string"
+    },
+    "autopool": {
+      "type": "string"
+    },
+    "education": {
+      "type": "string"
+    },
+    "educationdate": {
+      "type": "date"
+    },
+    "medical": {
+      "type": "string"
+    },
+    "medicaldate": {
+      "type": "date"
+    },
+    "travel": {
+      "type": "string"
+    },
+    "traveldate": {
+      "type": "date"
+    },
+    "annual": {
+      "type": "string"
+    },
+    "annualdate": {
+      "type": "date"
+    },
+    "repurchasepool": {
+      "type": "string"
+    },
+    "husbandname": {
+      "type": "string"
+    },
+    "nomndob": {
+      "type": "string"
+    },
+    "jointype": {
+      "type": "string"
+    },
+    "upline": {
+      "type": "string"
+    },
+    "uplinedate": {
+      "type": "date"
+    },
+    "uplinepayid": {
+      "type": "string"
+    },
+    "upline1": {
+      "type": "string"
+    },
+    "introchild1": {
+      "type": "string"
+    },
+    "introchild2": {
+      "type": "string"
+    },
+    "smpayid": {
+      "type": "string"
+    },
+    "bankverify": {
+      "type": "string"
+    },
+    "panverify": {
+      "type": "string"
+    },
+    "aadhaarvaerify": {
+      "type": "string"
+    },
+    "mannual": {
+      "type": "string"
+    },
+    "appsm": {
+      "type": "string"
+    },
+    "swiftcode": {
+      "type": "string"
+    },
+    "binaryregno": {
+      "type": "string"
+    },
+    "kycuuploadstatusp": {
+      "type": "string"
+    },
+    "club": {
+      "type": "string"
+    },
+    "clubdate": {
+      "type": "date"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "member_master"
+    }
+  }
+}

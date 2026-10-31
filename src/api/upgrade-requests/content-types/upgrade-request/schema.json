@@ -1,0 +1,135 @@
+{
+  "kind": "collectionType",
+  "collectionName": "upgrade_requests",
+  "info": {
+    "singularName": "upgrade-request",
+    "pluralName": "upgrade-requests",
+    "displayName": "Upgrade Requests"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "upgrade_req_old_id": {
+      "type": "integer"
+    },
+    "transaction_no": {
+      "type": "string"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "category_id": {
+      "type": "integer"
+    },
+    "kit_id": {
+      "type": "integer"
+    },
+    "no_of_epin": {
+      "type": "integer"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "pay_amount": {
+      "type": "decimal"
+    },
+    "pay_mode": {
+      "type": "string"
+    },
+    "payment_type": {
+      "type": "string"
+    },
+    "ref_no": {
+      "type": "string"
+    },
+    "bank_name": {
+      "type": "string"
+    },
+    "ref_date": {
+      "type": "date"
+    },
+    "req_date": {
+      "type": "datetime"
+    },
+    "confirm_date": {
+      "type": "datetime"
+    },
+    "req_status": {
+      "type": "string"
+    },
+    "req_code": {
+      "type": "string"
+    },
+    "request_type": {
+      "type": "string"
+    },
+    "comment": {
+      "type": "text"
+    },
+    "seen": {
+      "type": "boolean"
+    },
+    "account_holder_name": {
+      "type": "string"
+    },
+    "from_account": {
+      "type": "string"
+    },
+    "company_account": {
+      "type": "string"
+    },
+    "cheque_no": {
+      "type": "string"
+    },
+    "transaction_ref_no": {
+      "type": "string"
+    },
+    "receipt_upload": {
+      "type": "string"
+    },
+    "city": {
+      "type": "string"
+    },
+    "pay_date": {
+      "type": "date"
+    },
+    "deposit_at": {
+      "type": "string"
+    },
+    "person_name": {
+      "type": "string"
+    },
+    "card_type": {
+      "type": "string"
+    },
+    "issue_by": {
+      "type": "string"
+    },
+    "swiped_by": {
+      "type": "string"
+    },
+    "invoice_no": {
+      "type": "string"
+    },
+    "company_bank": {
+      "type": "string"
+    },
+    "ref_regno": {
+      "type": "string"
+    },
+    "order_id": {
+      "type": "string"
+    },
+    "razorpay_order_id": {
+      "type": "string"
+    },
+    "razorpay_payment_id": {
+      "type": "string"
+    },
+    "razorpay_signature": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transaction_histories",
+  "info": {
+    "singularName": "transaction-history",
+    "pluralName": "transaction-histories",
+    "displayName": "Transaction History"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "type": "decimal"
+    },
+    "direction": {
+      "type": "enumeration",
+      "enum": [
+        "CREDIT",
+        "DEBIT"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "COMMISSION",
+        "WITHDRAW",
+        "DEDUCT"
+      ]
+    },
+    "transaction_status": {
+      "type": "enumeration",
+      "enum": [
+        "SUCCESS",
+        "FAILED",
+        "PENDING"
+      ]
+    },
+    "reference": {
+      "type": "string"
+    },
+    "wallet": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wallet.wallet",
+      "inversedBy": "transaction_histories"
+    },
+    "earner": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "transaction_earner"
+    },
+    "source_user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "transaction_source_user"
+    },
+    "commission": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::commission.commission",
+      "inversedBy": "transaction_history"
+    },
+    "payout": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::payout.payout",
+      "inversedBy": "transaction_history"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "remark": {
+      "type": "string"
+    },
+    "transdate": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "kind": "collectionType",
+  "collectionName": "payouts",
+  "info": {
+    "singularName": "payout",
+    "pluralName": "payouts",
+    "displayName": "Payout"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "total_amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "remark": {
+      "type": "text"
+    },
+    "fromDate": {
+      "type": "date"
+    },
+    "toDate": {
+      "type": "date"
+    },
+    "payout_status": {
+      "type": "enumeration",
+      "enum": [
+        "REQUESTED",
+        "PAID",
+        "REJECTED"
+      ]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "payouts"
+    },
+    "available_amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "withdraw_amount": {
+      "type": "decimal",
+      "required": true
+    },
+    "kyc_document": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::kyc-document.kyc-document",
+      "inversedBy": "payouts"
+    },
+    "tds_charges": {
+      "type": "decimal"
+    },
+    "admin_charges": {
+      "type": "decimal"
+    },
+    "request_date": {
+      "type": "datetime"
+    },
+    "paid_date": {
+      "type": "datetime"
+    },
+    "transaction_type": {
+      "type": "enumeration",
+      "enum": [
+        "DEDUCT",
+        "WITHDRAW"
+      ]
+    },
+    "transaction_amount": {
+      "type": "decimal"
+    },
+    "admin_remarks": {
+      "type": "string"
+    },
+    "deduct_remarks": {
+      "type": "string"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "transaction_code": {
+      "type": "string"
+    },
+    "wallet": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::wallet.wallet",
+      "inversedBy": "payouts"
+    },
+    "transaction_history": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::transaction-history.transaction-history",
+      "mappedBy": "payout"
+    },
+    "net_payable_amount": {
+      "type": "decimal"
+    }
+  }
+}

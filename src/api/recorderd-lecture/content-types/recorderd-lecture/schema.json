@@ -1,0 +1,154 @@
+{
+  "kind": "collectionType",
+  "collectionName": "recorderd_lectures",
+  "info": {
+    "singularName": "recorderd-lecture",
+    "pluralName": "recorderd-lectures",
+    "displayName": "Recorderd Lecture"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "course_title": {
+      "type": "string",
+      "required": true
+    },
+    "course_desc": {
+      "type": "string",
+      "required": true
+    },
+    "course_thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
+    },
+    "course_resources_download": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "course_resources_title": {
+      "type": "string",
+      "required": false
+    },
+    "course_resources_desc": {
+      "type": "text"
+    },
+    "course_progress": {
+      "type": "integer",
+      "required": false,
+      "min": 0,
+      "max": 100
+    },
+    "video_url": {
+      "type": "string",
+      "required": true
+    },
+    "course_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course-category.course-category",
+      "inversedBy": "recorderd_lectures"
+    },
+    "teacher": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::teacher.teacher",
+      "inversedBy": "recorderd_lectures"
+    },
+    "course_price": {
+      "type": "integer",
+      "required": false
+    },
+    "vdo_id": {
+      "type": "uid",
+      "required": false
+    },
+    "posters": {
+      "type": "json"
+    },
+    "folderPath": {
+      "type": "json"
+    },
+    "quiz": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::quiz.quiz",
+      "mappedBy": "recorderd_lecture"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "recorderd_lectures"
+    },
+    "length": {
+      "type": "decimal"
+    },
+    "gst": {
+      "type": "biginteger"
+    },
+    "feedback": {
+      "type": "decimal"
+    },
+    "playlist": {
+      "type": "json"
+    },
+    "module_id": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "payments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payment.payment",
+      "mappedBy": "course"
+    },
+    "purchased_courses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::purchased-course.purchased-course",
+      "mappedBy": "course"
+    },
+    "quiz_score": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::quiz-score.quiz-score",
+      "inversedBy": "course"
+    },
+    "thumbnail_img_path": {
+      "type": "string"
+    },
+    "course_modules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course-module.course-module",
+      "mappedBy": "recorderd_lecture"
+    },
+    "cgst": {
+      "type": "decimal"
+    },
+    "sgst": {
+      "type": "decimal"
+    },
+    "mrp": {
+      "type": "decimal"
+    },
+    "offline_course": {
+      "type": "boolean"
+    }
+  }
+}

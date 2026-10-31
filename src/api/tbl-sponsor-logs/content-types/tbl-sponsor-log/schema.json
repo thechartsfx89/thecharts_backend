@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tbl_sponsor_logs",
+  "info": {
+    "singularName": "tbl-sponsor-log",
+    "pluralName": "tbl-sponsor-logs",
+    "displayName": "Tbl Sponsor Logs"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "sponsorlogid_old": {
+      "type": "integer"
+    },
+    "oldsregno": {
+      "type": "string"
+    },
+    "newsregno": {
+      "type": "string"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "udate": {
+      "type": "datetime"
+    }
+  }
+}

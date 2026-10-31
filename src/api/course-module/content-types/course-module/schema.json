@@ -1,0 +1,107 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_modules",
+  "info": {
+    "singularName": "course-module",
+    "pluralName": "course-modules",
+    "displayName": "Course Module"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "order": {
+      "type": "integer"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "recorderd_lecture": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::recorderd-lecture.recorderd-lecture",
+      "inversedBy": "course_modules"
+    },
+    "course_playlists": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course-playlist.course-playlist",
+      "mappedBy": "course_module"
+    },
+    "playlist": {
+      "type": "json"
+    },
+    "course_resources_download": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "course_resources_title": {
+      "type": "string"
+    },
+    "course_resources_desc": {
+      "type": "text"
+    },
+    "course_progress": {
+      "type": "decimal"
+    },
+    "teacher": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::teacher.teacher",
+      "inversedBy": "course_modules"
+    },
+    "quiz": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::quiz.quiz",
+      "inversedBy": "course_module"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "course_modules"
+    },
+    "quiz_score": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quiz-score.quiz-score",
+      "mappedBy": "course_modules"
+    },
+    "thumbnail_img_path": {
+      "type": "string"
+    },
+    "video_progresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::video-progress.video-progress",
+      "mappedBy": "module"
+    },
+    "course_category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course-category.course-category",
+      "inversedBy": "course_modules"
+    }
+  }
+}

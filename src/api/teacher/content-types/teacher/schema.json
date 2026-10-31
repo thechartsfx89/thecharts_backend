@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teachers",
+  "info": {
+    "singularName": "teacher",
+    "pluralName": "teachers",
+    "displayName": "Teacher"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "teacher_name": {
+      "type": "string",
+      "required": true
+    },
+    "teacher_desc": {
+      "type": "text",
+      "required": true
+    },
+    "teacher_image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "teacher_rating": {
+      "type": "decimal",
+      "min": 0,
+      "max": 5
+    },
+    "recorderd_lectures": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::recorderd-lecture.recorderd-lecture",
+      "mappedBy": "teacher"
+    },
+    "course_modules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course-module.course-module",
+      "mappedBy": "teacher"
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "member_payment_details",
+  "info": {
+    "singularName": "member-payment-detail",
+    "pluralName": "member-payment-details",
+    "displayName": "Member Payment Details"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ptrdid": {
+      "type": "integer"
+    },
+    "ptrid": {
+      "type": "integer"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "tramount": {
+      "type": "decimal"
+    },
+    "trdate": {
+      "type": "datetime"
+    },
+    "trrefno": {
+      "type": "string"
+    },
+    "trpaymode": {
+      "type": "string"
+    },
+    "trbankname": {
+      "type": "string"
+    },
+    "trappdate": {
+      "type": "datetime"
+    },
+    "trappby": {
+      "type": "string"
+    },
+    "trstatus": {
+      "type": "integer"
+    },
+    "trcomment": {
+      "type": "text"
+    },
+    "trentrydate": {
+      "type": "datetime"
+    },
+    "tdsrate": {
+      "type": "decimal"
+    },
+    "tdsamount": {
+      "type": "decimal"
+    },
+    "handlingrate": {
+      "type": "decimal"
+    },
+    "handlingamount": {
+      "type": "decimal"
+    },
+    "netamount": {
+      "type": "decimal"
+    }
+  }
+}

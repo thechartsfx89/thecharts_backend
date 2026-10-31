@@ -1,0 +1,130 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_orders",
+  "info": {
+    "singularName": "product-order",
+    "pluralName": "product-orders",
+    "displayName": "Product Orders"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "MPOID": {
+      "type": "integer"
+    },
+    "OrderNo": {
+      "type": "string"
+    },
+    "OrderDate": {
+      "type": "datetime"
+    },
+    "invNo": {
+      "type": "string"
+    },
+    "invDate": {
+      "type": "datetime"
+    },
+    "TotalAmount": {
+      "type": "decimal"
+    },
+    "Discount": {
+      "type": "decimal"
+    },
+    "couponDiscount": {
+      "type": "decimal"
+    },
+    "Status": {
+      "type": "string"
+    },
+    "paymentmode": {
+      "type": "string"
+    },
+    "paymentdate": {
+      "type": "datetime"
+    },
+    "paymentStatus": {
+      "type": "string"
+    },
+    "refno": {
+      "type": "string"
+    },
+    "bankname": {
+      "type": "string"
+    },
+    "totalquantity": {
+      "type": "integer"
+    },
+    "currency": {
+      "type": "string",
+      "default": "INR"
+    },
+    "shipCharge": {
+      "type": "decimal"
+    },
+    "TaxAmt": {
+      "type": "decimal"
+    },
+    "TaxRate": {
+      "type": "decimal"
+    },
+    "IGST": {
+      "type": "decimal"
+    },
+    "CGST": {
+      "type": "decimal"
+    },
+    "SGST": {
+      "type": "decimal"
+    },
+
+    "razorpay_order_id": {
+      "type": "string"
+    },
+    "razorpay_payment_id": {
+      "type": "string"
+    },
+    "razorpay_signature": {
+      "type": "string"
+    },
+
+    "SName": {
+      "type": "string"
+    },
+    "SPhone": {
+      "type": "string"
+    },
+    "Semail": {
+      "type": "email"
+    },
+    "Saddress": {
+      "type": "text"
+    },
+    "Scity": {
+      "type": "string"
+    },
+    "SState": {
+      "type": "string"
+    },
+    "Spincode": {
+      "type": "string"
+    },
+
+    "trackingno": {
+      "type": "string"
+    },
+    "dispatchdate": {
+      "type": "datetime"
+    },
+    "dispatchComment": {
+      "type": "text"
+    },
+
+    "order_remark": {
+      "type": "text"
+    },
+    "created_at_legacy": {
+      "type": "datetime"
+    }
+  }
+}

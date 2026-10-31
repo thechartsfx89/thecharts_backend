@@ -1,0 +1,84 @@
+{
+  "kind": "collectionType",
+  "collectionName": "purchased_courses",
+  "info": {
+    "singularName": "purchased-course",
+    "pluralName": "purchased-courses",
+    "displayName": "Purchased Course"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "purchased_courses"
+    },
+    "course": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::recorderd-lecture.recorderd-lecture",
+      "inversedBy": "purchased_courses"
+    },
+    "payment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::payment.payment",
+      "mappedBy": "purchased_course"
+    },
+    "purchased_date": {
+      "type": "datetime"
+    },
+    "expiry_date": {
+      "type": "datetime"
+    },
+    "access_status": {
+      "type": "enumeration",
+      "enum": [
+        "active",
+        "expired",
+        "refunded",
+        "blocked"
+      ]
+    },
+    "refunds": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::refund.refund",
+      "mappedBy": "course"
+    },
+    "video_progresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::video-progress.video-progress",
+      "mappedBy": "purchased_course"
+    },
+    "quiz_scores": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quiz-score.quiz-score",
+      "mappedBy": "purchased_course"
+    },
+    "mpoid": {
+      "type": "string"
+    },
+    "mrp": {
+      "type": "decimal"
+    },
+    "dp": {
+      "type": "decimal"
+    },
+    "total_amount": {
+      "type": "decimal"
+    },
+    "product_id": {
+      "type": "string"
+    },
+    "regno": {
+      "type": "string"
+    }
+  }
+}

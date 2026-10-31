@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "course_playlists",
+  "info": {
+    "singularName": "course-playlist",
+    "pluralName": "course-playlists",
+    "displayName": "Course Playlist"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "vdo_id": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "integer"
+    },
+    "is_free_preview": {
+      "type": "boolean"
+    },
+    "course_module": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course-module.course-module",
+      "inversedBy": "course_playlists"
+    }
+  }
+}

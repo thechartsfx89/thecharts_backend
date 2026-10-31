@@ -1,0 +1,69 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quizzes",
+  "info": {
+    "singularName": "quiz",
+    "pluralName": "quizzes",
+    "displayName": "Quiz"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "recorderd_lecture": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::recorderd-lecture.recorderd-lecture",
+      "inversedBy": "quiz"
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "quiz"
+    },
+    "quiz_scores": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quiz-score.quiz-score",
+      "mappedBy": "quiz"
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "basic",
+        "fibonacci",
+        "advanced"
+      ]
+    },
+    "questions": {
+      "type": "component",
+      "component": "mcq.quiz",
+      "repeatable": true
+    },
+    "passing_percentage": {
+      "type": "string",
+      "required": true
+    },
+    "course_module": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::course-module.course-module",
+      "mappedBy": "quiz"
+    },
+    "course_categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course-category.course-category",
+      "mappedBy": "quiz"
+    }
+  }
+}

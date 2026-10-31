@@ -1,0 +1,60 @@
+{
+  "collectionName": "components_all_levels_all_levels_components",
+  "info": {
+    "displayName": "All Levels Component"
+  },
+  "options": {},
+  "attributes": {
+    "level_1": {
+      "type": "integer",
+      "required": true,
+      "default": 3500
+    },
+    "level_2": {
+      "type": "integer",
+      "required": true,
+      "default": 2500
+    },
+    "level_3": {
+      "type": "integer",
+      "required": true,
+      "default": 1500
+    },
+    "level_4": {
+      "type": "integer",
+      "required": true,
+      "default": 1000
+    },
+    "level_5": {
+      "type": "integer",
+      "required": true,
+      "default": 750
+    },
+    "level_6": {
+      "type": "integer",
+      "required": true,
+      "default": 750
+    },
+    "level_7": {
+      "type": "integer",
+      "required": true,
+      "default": 500
+    },
+    "level_8": {
+      "type": "integer",
+      "required": true,
+      "default": 500
+    },
+    "level_9": {
+      "type": "integer",
+      "required": true,
+      "default": 500
+    },
+    "level_10": {
+      "type": "integer",
+      "required": true,
+      "default": 1000
+    }
+  },
+  "config": {}
+}

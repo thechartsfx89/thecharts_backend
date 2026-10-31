@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_club_statuses",
+  "info": {
+    "singularName": "user-club-status",
+    "pluralName": "user-club-statuses",
+    "displayName": "Club Income Window"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "activatedAt": {
+      "type": "datetime"
+    },
+    "expiresAt": {
+      "type": "datetime"
+    },
+    "isActive": {
+      "type": "boolean"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "user_club_status"
+    },
+    "club": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::club.club",
+      "inversedBy": "user_club_status"
+    },
+    "washedOutAt": {
+      "type": "datetime"
+    }
+  }
+}

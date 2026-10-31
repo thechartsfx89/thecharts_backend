@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "member_level_join_details",
+  "info": {
+    "singularName": "member-level-join-detail",
+    "pluralName": "member-level-join-details",
+    "displayName": "Member Level Join Details"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "MLDID": {
+      "type": "integer"
+    },
+    "MLID": {
+      "type": "integer"
+    },
+    "toRegNo": {
+      "type": "string"
+    },
+    "fromRegNo": {
+      "type": "string"
+    },
+    "entryDate": {
+      "type": "datetime"
+    },
+    "Amount": {
+      "type": "decimal"
+    }
+  }
+}

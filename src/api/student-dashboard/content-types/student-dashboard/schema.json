@@ -1,0 +1,14 @@
+{
+  "kind": "collectionType",
+  "collectionName": "student_dashboards",
+  "info": {
+    "singularName": "student-dashboard",
+    "pluralName": "student-dashboards",
+    "displayName": "Student Dashboard"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {}
+}

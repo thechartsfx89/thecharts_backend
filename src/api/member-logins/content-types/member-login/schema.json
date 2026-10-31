@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "member_logins",
+  "info": {
+    "singularName": "member-login",
+    "pluralName": "member-logins",
+    "displayName": "Member Login"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "regno": {
+      "type": "string"
+    },
+    "memcode": {
+      "type": "string"
+    },
+    "loginid": {
+      "type": "string",
+      "required": true
+    },
+    "randomid": {
+      "type": "string"
+    },
+    "password": {
+      "type": "string"
+    },
+    "epassword": {
+      "type": "string"
+    },
+    "rlevel": {
+      "type": "integer"
+    },
+    "loginedit": {
+      "type": "boolean"
+    },
+    "lastlogin": {
+      "type": "datetime"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "secret_qid": {
+      "type": "integer"
+    },
+    "secret_ans": {
+      "type": "string"
+    }
+  }
+}

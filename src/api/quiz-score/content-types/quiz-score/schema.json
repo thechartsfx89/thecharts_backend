@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "quiz_scores",
+  "info": {
+    "singularName": "quiz-score",
+    "pluralName": "quiz-scores",
+    "displayName": "Quiz Score"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "quiz_scores"
+    },
+    "quiz": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::quiz.quiz",
+      "inversedBy": "quiz_scores"
+    },
+    "score": {
+      "type": "decimal"
+    },
+    "answers": {
+      "type": "json"
+    },
+    "is_passed": {
+      "type": "boolean"
+    },
+    "attempt_no": {
+      "type": "integer"
+    },
+    "course": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::recorderd-lecture.recorderd-lecture",
+      "mappedBy": "quiz_score"
+    },
+    "purchased_course": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::purchased-course.purchased-course",
+      "inversedBy": "quiz_scores"
+    },
+    "course_modules": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::course-module.course-module",
+      "inversedBy": "quiz_score"
+    }
+  }
+}

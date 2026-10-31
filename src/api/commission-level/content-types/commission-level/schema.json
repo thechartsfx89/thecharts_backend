@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "commission_levels",
+  "info": {
+    "singularName": "commission-level",
+    "pluralName": "commission-levels",
+    "displayName": "Commission Level"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "level": {
+      "type": "component",
+      "component": "all-levels.all-levels-component",
+      "repeatable": false
+    }
+  }
+}

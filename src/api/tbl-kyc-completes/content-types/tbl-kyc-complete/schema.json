@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tbl_kyc_completes",
+  "info": {
+    "singularName": "tbl-kyc-complete",
+    "pluralName": "tbl-kyc-completes",
+    "displayName": "Tbl Kyc Completes"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "regno": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string"
+    },
+    "loginid": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string"
+    }
+  }
+}

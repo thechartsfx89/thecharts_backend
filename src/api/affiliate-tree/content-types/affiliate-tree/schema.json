@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "affiliate_trees",
+  "info": {
+    "singularName": "affiliate-tree",
+    "pluralName": "affiliate-trees",
+    "displayName": "Affiliate Tree"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "level": {
+      "type": "integer",
+      "required": false,
+      "min": 1,
+      "max": 10
+    },
+    "parentUser": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "affiliate_trees_parent"
+    },
+    "childUser": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "affiliate_trees_child"
+    }
+  }
+}

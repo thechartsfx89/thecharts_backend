@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_mcq_quizzes",
+  "info": {
+    "displayName": "Quiz"
+  },
+  "options": {},
+  "attributes": {
+    "question": {
+      "type": "string",
+      "required": true
+    },
+    "option_1": {
+      "type": "string",
+      "required": true
+    },
+    "option_2": {
+      "type": "string",
+      "required": true
+    },
+    "option_3": {
+      "type": "string",
+      "required": true
+    },
+    "option_4": {
+      "type": "string",
+      "required": true
+    },
+    "correct_answer": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "option_1",
+        "option_2",
+        "option_3",
+        "option_4"
+      ]
+    }
+  },
+  "config": {}
+}

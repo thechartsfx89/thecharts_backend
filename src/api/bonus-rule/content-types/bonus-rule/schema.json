@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "bonus_rules",
+  "info": {
+    "singularName": "bonus-rule",
+    "pluralName": "bonus-rules",
+    "displayName": "Level Income Rule"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "enumeration",
+      "enum": [
+        "DIRECT_3",
+        "DIRECT_5"
+      ]
+    },
+    "directRequired": {
+      "type": "integer"
+    },
+    "maxLevel": {
+      "type": "integer"
+    },
+    "validDays": {
+      "type": "integer",
+      "required": true
+    },
+    "user_bonus_status": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-bonus-status.user-bonus-status",
+      "mappedBy": "bonusRule"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tbl_binary_volumes",
+  "info": {
+    "singularName": "tbl-binary-volume",
+    "pluralName": "tbl-binary-volumes",
+    "displayName": "Tbl Binary Volumes"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "id_old": {
+      "type": "integer"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "childregno": {
+      "type": "string"
+    },
+    "adid": {
+      "type": "integer"
+    },
+    "promobv": {
+      "type": "decimal"
+    },
+    "side": {
+      "type": "string"
+    },
+    "insertdate": {
+      "type": "datetime"
+    },
+    "remark": {
+      "type": "text"
+    }
+  }
+}

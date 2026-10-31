@@ -1,0 +1,59 @@
+{
+  "kind": "collectionType",
+  "collectionName": "refunds",
+  "info": {
+    "singularName": "refund",
+    "pluralName": "refunds",
+    "displayName": "Refund"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "refund_reason": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "refunds"
+    },
+    "course": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::purchased-course.purchased-course",
+      "inversedBy": "refunds"
+    },
+    "payment": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::payment.payment",
+      "mappedBy": "refund"
+    },
+    "refund_status": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ]
+    },
+    "admin_comment": {
+      "type": "string"
+    },
+    "requested_at": {
+      "type": "datetime",
+      "required": true
+    },
+    "proccessed_at": {
+      "type": "datetime"
+    }
+  }
+}

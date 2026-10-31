@@ -1,0 +1,76 @@
+{
+  "kind": "collectionType",
+  "collectionName": "wallets",
+  "info": {
+    "singularName": "wallet",
+    "pluralName": "wallets",
+    "displayName": "Wallet"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Affiliate_Income": {
+      "type": "decimal"
+    },
+    "Level_Income": {
+      "type": "decimal"
+    },
+    "Club_Income": {
+      "type": "decimal"
+    },
+    "total_balance": {
+      "type": "decimal"
+    },
+    "total_earned": {
+      "type": "decimal"
+    },
+    "total_withdrawn": {
+      "type": "decimal"
+    },
+    "locked_amount": {
+      "type": "decimal"
+    },
+    "wallet_status": {
+      "type": "enumeration",
+      "enum": [
+        "ACTIVE",
+        "BLOCKED"
+      ]
+    },
+    "last_transaction_at": {
+      "type": "datetime"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "wallet"
+    },
+    "commissions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::commission.commission",
+      "mappedBy": "wallet"
+    },
+    "payouts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payout.payout",
+      "mappedBy": "wallet"
+    },
+    "transaction_histories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transaction-history.transaction-history",
+      "mappedBy": "wallet"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "wrong_income": {
+      "type": "decimal"
+    }
+  }
+}

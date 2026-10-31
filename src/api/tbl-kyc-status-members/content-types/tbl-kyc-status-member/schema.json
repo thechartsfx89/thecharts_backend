@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tbl_kyc_status_members",
+  "info": {
+    "singularName": "tbl-kyc-status-member",
+    "pluralName": "tbl-kyc-status-members",
+    "displayName": "Tbl Kyc Status Members"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "regno": {
+      "type": "string",
+      "required": true
+    },
+    "kycpartid": {
+      "type": "integer"
+    },
+    "kycpart": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "loginid": {
+      "type": "string"
+    },
+    "cstatus": {
+      "type": "string"
+    },
+    "statusid": {
+      "type": "integer"
+    },
+    "regdate": {
+      "type": "datetime"
+    },
+    "verifydate": {
+      "type": "datetime"
+    },
+    "selfapprovaldate": {
+      "type": "datetime"
+    }
+  }
+}

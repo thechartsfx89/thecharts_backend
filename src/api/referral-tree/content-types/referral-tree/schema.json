@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "referral_trees",
+  "info": {
+    "singularName": "referral-tree",
+    "pluralName": "referral-trees",
+    "displayName": "Referral Tree"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "parentAffiliate": {
+      "type": "integer"
+    },
+    "childAffiliate": {
+      "type": "integer"
+    },
+    "level": {
+      "type": "component",
+      "component": "all-levels.all-levels-component",
+      "repeatable": true
+    },
+    "referralBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "parentAffiliate"
+    },
+    "referrals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "childAffiliate"
+    }
+  }
+}

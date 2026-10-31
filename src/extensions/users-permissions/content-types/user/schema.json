@@ -1,0 +1,618 @@
+{
+  "kind": "collectionType",
+  "collectionName": "up_users",
+  "info": {
+    "name": "user",
+    "description": "",
+    "singularName": "user",
+    "pluralName": "users",
+    "displayName": "User"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {
+    "users-permissions": {
+      "usernameRequired": false
+    }
+  },
+  "attributes": {
+    "username": {
+      "type": "string",
+      "minLength": 3,
+      "unique": false,
+      "configurable": false,
+      "required": false
+    },
+    "email": {
+      "type": "email",
+      "minLength": 6,
+      "configurable": false,
+      "required": true
+    },
+    "provider": {
+      "type": "string",
+      "configurable": false
+    },
+    "password": {
+      "type": "password",
+      "minLength": 6,
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "resetPasswordToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "confirmationToken": {
+      "type": "string",
+      "configurable": false,
+      "private": true,
+      "searchable": false
+    },
+    "confirmed": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "blocked": {
+      "type": "boolean",
+      "default": false,
+      "configurable": false
+    },
+    "role": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.role",
+      "inversedBy": "users",
+      "configurable": false
+    },
+    "ownReferralCode": {
+      "type": "string",
+      "required": false,
+      "unique": false
+    },
+    "referralName": {
+      "type": "string"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female",
+        "other"
+      ]
+    },
+    "dob": {
+      "type": "date",
+      "default": "2025-09-18"
+    },
+    "mobileNumber": {
+      "type": "biginteger"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "memcode": {
+      "type": "string"
+    },
+    "loginid": {
+      "type": "string"
+    },
+    "randomid": {
+      "type": "string"
+    },
+    "mssql_password": {
+      "type": "string",
+      "private": true
+    },
+    "epassword": {
+      "type": "string",
+      "private": true
+    },
+    "rlevel": {
+      "type": "integer"
+    },
+    "loginedit": {
+      "type": "boolean"
+    },
+    "lastlogin": {
+      "type": "datetime"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "secret_qid": {
+      "type": "integer",
+      "private": true
+    },
+    "secret_ans": {
+      "type": "string",
+      "private": true
+    },
+    "country": {
+      "type": "enumeration",
+      "enum": [
+        "Afghanistan",
+        "Albania",
+        "Algeria",
+        "Andorra",
+        "Angola",
+        "Antigua and Barbuda",
+        "Argentina",
+        "Armenia",
+        "Australia",
+        "Austria",
+        "Azerbaijan",
+        "Bahamas",
+        "Bahrain",
+        "Bangladesh",
+        "Barbados",
+        "Belarus",
+        "Belgium",
+        "Belize",
+        "Benin",
+        "Bhutan",
+        "Bolivia",
+        "Bosnia and Herzegovina",
+        "Botswana",
+        "Brazil",
+        "Brunei",
+        "Bulgaria",
+        "Burkina Faso",
+        "Burundi",
+        "Cabo Verde",
+        "Cambodia",
+        "Cameroon",
+        "Canada",
+        "Central African Republic",
+        "Chad",
+        "Chile",
+        "China",
+        "Colombia",
+        "Comoros",
+        "Congo (Congo-Brazzaville)",
+        "Costa Rica",
+        "Croatia",
+        "Cuba",
+        "Cyprus",
+        "Czechia (Czech Republic)",
+        "Democratic Republic of the Congo",
+        "Denmark",
+        "Djibouti",
+        "Dominica",
+        "Dominican Republic",
+        "Ecuador",
+        "Egypt",
+        "El Salvador",
+        "Equatorial Guinea",
+        "Eritrea",
+        "Estonia",
+        "Eswatini (fmr. \"Swaziland\")",
+        "Ethiopia",
+        "Fiji",
+        "Finland",
+        "France",
+        "Gabon",
+        "Gambia",
+        "Georgia",
+        "Germany",
+        "Ghana",
+        "Greece",
+        "Grenada",
+        "Guatemala",
+        "Guinea",
+        "Guinea-Bissau",
+        "Guyana",
+        "Haiti",
+        "Honduras",
+        "Hungary",
+        "Iceland",
+        "India",
+        "Indonesia",
+        "Iran",
+        "Iraq",
+        "Ireland",
+        "Israel",
+        "Italy",
+        "Jamaica",
+        "Japan",
+        "Jordan",
+        "Kazakhstan",
+        "Kenya",
+        "Kiribati",
+        "Kuwait",
+        "Kyrgyzstan",
+        "Laos",
+        "Latvia",
+        "Lebanon",
+        "Lesotho",
+        "Liberia",
+        "Libya",
+        "Liechtenstein",
+        "Lithuania",
+        "Luxembourg",
+        "Madagascar",
+        "Malawi",
+        "Malaysia",
+        "Maldives",
+        "Mali",
+        "Malta",
+        "Marshall Islands",
+        "Mauritania",
+        "Mauritius",
+        "Mexico",
+        "Micronesia",
+        "Moldova",
+        "Monaco",
+        "Mongolia",
+        "Montenegro",
+        "Morocco",
+        "Mozambique",
+        "Myanmar (Burma)",
+        "Namibia",
+        "Nauru",
+        "Nepal",
+        "Netherlands",
+        "New Zealand",
+        "Nicaragua",
+        "Niger",
+        "Nigeria",
+        "North Korea",
+        "North Macedonia (formerly Macedonia)",
+        "Norway",
+        "Oman",
+        "Pakistan",
+        "Palau",
+        "Palestine",
+        "Panama",
+        "Papua New Guinea",
+        "Paraguay",
+        "Peru",
+        "Philippines",
+        "Poland",
+        "Portugal",
+        "Qatar",
+        "Romania",
+        "Russia",
+        "Rwanda",
+        "Saint Kitts and Nevis",
+        "Saint Lucia",
+        "Saint Vincent and the Grenadines",
+        "Samoa",
+        "San Marino",
+        "Sao Tome and Principe",
+        "Saudi Arabia",
+        "Senegal",
+        "Serbia",
+        "Seychelles",
+        "Sierra Leone",
+        "Singapore",
+        "Slovakia",
+        "Slovenia",
+        "Solomon Islands",
+        "Somalia",
+        "South Africa",
+        "South Korea",
+        "South Sudan",
+        "Spain",
+        "Sri Lanka",
+        "Sudan",
+        "Suriname",
+        "Sweden",
+        "Switzerland",
+        "Syria",
+        "Tajikistan",
+        "Tanzania",
+        "Thailand",
+        "Timor-Leste",
+        "Togo",
+        "Tonga",
+        "Trinidad and Tobago",
+        "Tunisia",
+        "Turkey",
+        "Turkmenistan",
+        "Tuvalu",
+        "Uganda",
+        "Ukraine",
+        "United Arab Emirates",
+        "United Kingdom",
+        "United States of America",
+        "Uruguay",
+        "Uzbekistan",
+        "Vanuatu",
+        "Vatican City (Holy See)",
+        "Venezuela",
+        "Vietnam",
+        "Yemen",
+        "Zambia",
+        "Zimbabwe"
+      ]
+    },
+    "agree": {
+      "type": "boolean"
+    },
+    "quiz": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::quiz.quiz",
+      "inversedBy": "users_permissions_users"
+    },
+    "recorderd_lectures": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::recorderd-lecture.recorderd-lecture",
+      "mappedBy": "user"
+    },
+    "terms": {
+      "type": "boolean"
+    },
+    "mentor_expertise": {
+      "type": "string"
+    },
+    "mentor_description": {
+      "type": "text"
+    },
+    "profile_image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "is_online": {
+      "type": "boolean"
+    },
+    "last_seen": {
+      "type": "datetime"
+    },
+    "quiz_scores": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::quiz-score.quiz-score",
+      "mappedBy": "user"
+    },
+    "payments": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payment.payment",
+      "mappedBy": "user"
+    },
+    "purchased_courses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::purchased-course.purchased-course",
+      "mappedBy": "user"
+    },
+    "refunds": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::refund.refund",
+      "mappedBy": "user"
+    },
+    "student_libraries": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::student-library.student-library",
+      "mappedBy": "user"
+    },
+    "sponsar_ID": {
+      "type": "string"
+    },
+    "kyc_documents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::kyc-document.kyc-document",
+      "mappedBy": "user"
+    },
+    "referralByCode": {
+      "type": "string"
+    },
+    "fullName": {
+      "type": "string",
+      "required": false
+    },
+    "parentAffiliate": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::referral-tree.referral-tree",
+      "mappedBy": "referralBy"
+    },
+    "childAffiliate": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::referral-tree.referral-tree",
+      "inversedBy": "referrals"
+    },
+    "hasPurchasedCourse": {
+      "type": "boolean"
+    },
+    "affiliateJoinedAt": {
+      "type": "datetime"
+    },
+    "directReferralCount": {
+      "type": "integer"
+    },
+    "totalReferralCount": {
+      "type": "integer"
+    },
+    "referrals": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "referredBy"
+    },
+    "referredBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "referrals"
+    },
+    "affiliate_trees_parent": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::affiliate-tree.affiliate-tree",
+      "mappedBy": "parentUser"
+    },
+    "affiliate_trees_child": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::affiliate-tree.affiliate-tree",
+      "mappedBy": "childUser"
+    },
+    "commission_earner": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::commission.commission",
+      "mappedBy": "earner"
+    },
+    "commission_source_user": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::commission.commission",
+      "mappedBy": "sourceUser"
+    },
+    "user_bonus_status": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-bonus-status.user-bonus-status",
+      "mappedBy": "user"
+    },
+    "user_club_status": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::user-club-status.user-club-status",
+      "mappedBy": "user"
+    },
+    "payouts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::payout.payout",
+      "mappedBy": "user"
+    },
+    "member_master": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::member-masters.member-master",
+      "inversedBy": "user"
+    },
+    "introregno": {
+      "type": "integer"
+    },
+    "father_husband_name": {
+      "type": "string"
+    },
+    "nominee_name": {
+      "type": "string"
+    },
+    "nominee_relation": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "pincode": {
+      "type": "string"
+    },
+    "doc_date": {
+      "type": "date"
+    },
+    "confirm_affiliate_payment": {
+      "type": "boolean"
+    },
+    "profile_img_path": {
+      "type": "string"
+    },
+    "nominee_dob": {
+      "type": "date"
+    },
+    "wallet": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::wallet.wallet",
+      "inversedBy": "user"
+    },
+    "transaction_earner": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transaction-history.transaction-history",
+      "mappedBy": "earner"
+    },
+    "transaction_source_user": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transaction-history.transaction-history",
+      "mappedBy": "source_user"
+    },
+    "member_accounts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::member-accounts.member-account",
+      "mappedBy": "earner"
+    },
+    "course_modules": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::course-module.course-module",
+      "mappedBy": "user"
+    },
+    "video_progresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::video-progress.video-progress",
+      "mappedBy": "user"
+    },
+    "affiliate_expired": {
+      "type": "boolean"
+    },
+    "affiliate_expiredAt": {
+      "type": "datetime"
+    },
+    "level_5_commission_window_expired": {
+      "type": "boolean"
+    },
+    "level_5_commission_window_expiredAt": {
+      "type": "datetime"
+    },
+    "level_10_commission_window_expired": {
+      "type": "boolean"
+    },
+    "level_10_commission_window_expiredAt": {
+      "type": "datetime"
+    },
+    "first_password": {
+      "type": "string",
+      "private": true
+    },
+    "club_50_isActive": {
+      "type": "boolean"
+    },
+    "club_50_expiredAt": {
+      "type": "datetime"
+    },
+    "club_250_isActive": {
+      "type": "boolean"
+    },
+    "club_250_expiredAt": {
+      "type": "datetime"
+    },
+    "club_500_isActive": {
+      "type": "boolean"
+    },
+    "club_500_expiredAt": {
+      "type": "datetime"
+    }
+  }
+}

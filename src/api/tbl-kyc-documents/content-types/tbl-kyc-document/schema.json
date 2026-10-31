@@ -1,0 +1,45 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tbl_kyc_documents",
+  "info": {
+    "singularName": "tbl-kyc-document",
+    "pluralName": "tbl-kyc-documents",
+    "displayName": "Tbl Kyc Documents"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "kycid_old": {
+      "type": "integer"
+    },
+    "regno": {
+      "type": "string"
+    },
+    "documentname": {
+      "type": "string"
+    },
+    "docfilename": {
+      "type": "string"
+    },
+    "docstatus": {
+      "type": "integer"
+    },
+    "cdate": {
+      "type": "datetime"
+    },
+    "documentno": {
+      "type": "string"
+    },
+    "ifsccode": {
+      "type": "string"
+    },
+    "remark": {
+      "type": "text"
+    },
+    "swiftcode": {
+      "type": "string"
+    }
+  }
+}
