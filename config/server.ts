@@ -8,7 +8,7 @@
 module.exports = ({ env }) => ({
   host: "0.0.0.0",
   port: env.int("PORT", 1338),
-    url: env('PUBLIC_URL', 'https://api.thechartsfx.com'),
+    url: env('PUBLIC_URL', 'https://api.thecharts.com'),
   app: {
     keys: env.array("APP_KEYS"),
   },

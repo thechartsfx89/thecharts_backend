@@ -14,7 +14,7 @@ yarn develop
 
 ### `start`
 
-### npx ngrok http 1337
+### npx ngrok http 1338
 ## npx ts-node db-migration/index.ts 
 ## npx strapi generate     
 npx strapi console   
