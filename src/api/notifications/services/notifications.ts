@@ -45,7 +45,7 @@ export default {
         <p><strong>Amount:</strong> ₹${amount}</p>
         <p><strong>Transaction ID:</strong> ${transactionId}</p>
 
-        <p>Thank you for choosing Educandle.</p>
+        <p>Thank you for choosing The Charts.</p>
       `,
     });
   },

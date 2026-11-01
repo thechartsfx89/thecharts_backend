@@ -3,7 +3,7 @@ module.exports = [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['http://localhost:3000', 'https://educandle.vercel.app', "https://feminaforce.com", "https://educandle.com"],
+      origin: ['http://localhost:3000', 'https://educandle.vercel.app', "https://feminaforce.com", "https://educandle.com", "https://thechartsfx.com", "https://api.educandle.com", "https://api.thechartsfx.com"],
       headers: ['Content-Type', 'Authorization', 'Origin', 'Accept'],
       methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
       credentials: true,

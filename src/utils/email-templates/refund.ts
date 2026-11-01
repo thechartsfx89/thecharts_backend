@@ -83,7 +83,7 @@ export const refundTemplate = (
 
               <p style="margin-top:20px; font-weight:600; color:#111827;">
                 Thanks & Regards,<br/>
-                EduCandle Support Team
+                The Charts Support Team
               </p>
             </td>
           </tr>
@@ -91,8 +91,8 @@ export const refundTemplate = (
           <!-- Footer -->
           <tr>
             <td class="email-footer">
-              © 2025. EduCandle. All rights reserved.<br/>
-              <span style="display:block; margin-top:6px;">For support, contact <a href="mailto:info@educandle.com" style="color:#10b981; text-decoration:none;">info@educandle.com</a></span>
+              © 2025. The Charts. All rights reserved.<br/>
+              <span style="display:block; margin-top:6px;">For support, contact <a href="mailto:thechartsfx89@gmail.com" style="color:#10b981; text-decoration:none;">info@thechartsfx.com</a></span>
             </td>
           </tr>
 
