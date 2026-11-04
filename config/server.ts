@@ -15,6 +15,15 @@ module.exports = ({ env }) => ({
   cron: {
     enabled: true,
     tasks: {
+      // Credits commission once its 7-day refund hold has passed
+      "0 * * * *": async ({ strapi }) => {
+        try {
+          const released = await strapi.service("api::affiliate.affiliate").releaseHeldCommissions();
+          strapi.log.info(`✅ Held commissions released → ${released}`);
+        } catch (error) {
+          strapi.log.error("❌ CRON ERROR: held commission release", error);
+        }
+      },
       // ✅ every minute
       "0 0 * * *": async ({ strapi }) => {
         try {

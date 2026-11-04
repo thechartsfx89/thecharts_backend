@@ -170,6 +170,21 @@ export async function resolveLiveMaxLevel(userId: number): Promise<number> {
   
   return matchingRule?.maxLevel ?? 1;
 }
+// Direct-7 route: this many paid direct referrals make a user eligible to earn without buying a course.
+// Kept separate from confirm_affiliate_payment, which also unlocks paid content such as webinars.
+export const DIRECT_ROUTE_REQUIRED = 7;
+
+export async function isDirectRouteEligible(userId: number): Promise<boolean> {
+  const paidDirects = await strapi.db.query("plugin::users-permissions.user").count({
+    where: {
+      referredBy: userId,
+      confirm_affiliate_payment: true,
+    },
+  });
+
+  return paidDirects >= DIRECT_ROUTE_REQUIRED;
+}
+
 export async function backfillLevelCommission(
   userId: number,
   maxLevel: number

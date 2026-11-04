@@ -1,4 +1,15 @@
-import { backfillLevelCommission, evaluateBonus, resolveLiveMaxLevel, resolveUnlockedMaxLevel } from "../utils/bonus";
+import { backfillLevelCommission, evaluateBonus, isDirectRouteEligible, resolveLiveMaxLevel, resolveUnlockedMaxLevel } from "../utils/bonus";
+
+// Courses whose verified payment counts as an admission
+const QUALIFYING_COURSE_IDS = [
+  'yijrnm2mbfm4rxxm5mumf0gb',
+  'w7ru2um7ouxua9yxsw7c81i8',
+  's49yybok4tyc4hpb41m645rh',
+];
+// Commission waits out the refund window before it reaches the wallet
+const COMMISSION_HOLD_DAYS = 7;
+// Payment statuses that undo an admission. REFUND_REQ is not here: it keeps the commission on hold until decided.
+const VOIDED_PAYMENT_STATUSES = ['REFUNDED', 'REJECTED', 'FAILED'];
 
 export default () => ({
   async handleUserAffiliateFlow({
@@ -268,12 +279,14 @@ async evaluateEligibilityLevelIncome(userId: any) {
     }
   }
 },
-async distributeLevelCommission(childId: number) {
+async distributeLevelCommission(childId: number, paymentId?: number, verifiedAt: Date = new Date()) {
     const commissionConfig = await strapi
       .documents("api::commission-level.commission-level")
       .findFirst({ populate: ["level"] });
 
     if (!commissionConfig?.level) return;
+
+    const estimatedCreditAt = new Date(verifiedAt.getTime() + COMMISSION_HOLD_DAYS * 24 * 60 * 60 * 1000);
 
     // 1️⃣ Fetch all ancestors for this child (The full 10-level path)
     const ancestors = await strapi
@@ -289,27 +302,35 @@ async distributeLevelCommission(childId: number) {
       const parent = edge.parentUser;
       const level = edge.level; // Distance from child to this parent
 
-      if (!parent || parent.affiliate_expired) continue;
+      if (!parent) continue;
+
+      const parentId = Number(parent.id);
+
+      // Eligible by paying their own affiliate fee, or through the Direct-7 route
+      const eligibleByDirects = !parent.confirm_affiliate_payment && await isDirectRouteEligible(parentId);
+      if (!parent.confirm_affiliate_payment && !eligibleByDirects) continue;
+      if (parent.affiliate_expired && !eligibleByDirects) continue;
 
       // Check restrictions (Matches your Educandle logic)
       if (level > 1 && parent.level_5_commission_window_expired) continue;
       if (level > 5 && parent.level_10_commission_window_expired) continue;
-      
-      // Check if parent has actually paid their own affiliate fee
-      if (!parent.confirm_affiliate_payment) continue;
 
       // 3️⃣ Eligibility Check
-      const parentId = Number(parent.id);
       const maxAllowedLevel = await resolveLiveMaxLevel(parentId);
       if (level > maxAllowedLevel) continue;
 
       // 4️⃣ Duplicate Protection (The fix for the duplicates we deleted earlier)
+      // A cancelled hold does not count, so a new purchase after a refund can earn again
       const exists = await strapi.documents("api::commission.commission").findFirst({
         filters: {
             earner: { id: parent.id },
             sourceUser: { id: childId },
             level: level,
             transaction_for: "LEVEL_INCOME",
+            $or: [
+              { transaction_status: { $ne: "CANCELLED" } },
+              { transaction_status: { $null: true } },
+            ],
         }
       });
       if (exists) continue;
@@ -323,15 +344,160 @@ async distributeLevelCommission(childId: number) {
           sourceUser: childId,
           level,
           amount,
-          credit: amount,
+          payment: paymentId,
+          estimated_credit_at: estimatedCreditAt,
+          // Held: no credit yet, so it stays out of the wallet until releaseHeldCommissions runs
           transaction_for: "LEVEL_INCOME",
-          transaction_status: "SUCCESS",
+          transaction_status: "PENDING",
           transaction_type: "CREDIT",
           publishedAt: new Date()
         },
       });
     }
 },
+
+  // Runs on every payment update, so each step must be safe to repeat
+  async handlePaymentUpdate(payment: any) {
+    if (VOIDED_PAYMENT_STATUSES.includes(payment.payment_status)) {
+      await this.reverseAdmission(payment);
+      return;
+    }
+
+    const qualifies = payment.course && QUALIFYING_COURSE_IDS.includes(payment.course.documentId);
+    if (payment.payment_status !== 'SUCCESS' || !qualifies) return;
+
+    // Claiming verified_at means later edits to this payment cannot restart the hold or the windows
+    const verifiedAt = new Date();
+    const { count } = await strapi.db.query("api::payment.payment").updateMany({
+      where: { id: payment.id, verified_at: { $null: true } },
+      data: { verified_at: verifiedAt },
+    });
+    if (!count) return;
+
+    try {
+      await strapi.db.query('plugin::users-permissions.user').update({
+        where: { id: payment.user.id },
+        data: {
+          // Using .toISOString() often solves "Invalid key type" for dates
+          affiliateJoinedAt: verifiedAt.toISOString(),
+          level_5_commission_window_expiredAt: new Date(verifiedAt.getTime() + 35 * 24 * 60 * 60 * 1000).toISOString(),
+          confirm_affiliate_payment: true,
+        },
+      });
+
+      await this.distributeLevelCommission(payment.user.id, payment.id, verifiedAt);
+    } catch (err) {
+      // Let the next save of this payment retry; duplicate protection covers anything already created
+      await strapi.db.query("api::payment.payment").updateMany({
+        where: { id: payment.id },
+        data: { verified_at: null },
+      });
+      console.error("❌ Failed to update user or distribute commission:", err.message);
+    }
+  },
+
+  async reverseAdmission(payment: any) {
+    const held = await strapi.db.query("api::commission.commission").findMany({
+      where: { payment: payment.id, transaction_status: "PENDING" },
+      select: ["id"],
+    });
+
+    for (const commission of held) {
+      await strapi.db.query("api::commission.commission").update({
+        where: { id: commission.id },
+        data: { transaction_status: "CANCELLED" },
+      });
+    }
+
+    if (!payment.verified_at) return;
+
+    await strapi.db.query("api::payment.payment").updateMany({
+      where: { id: payment.id },
+      data: { verified_at: null },
+    });
+
+    // The buyer stops counting as paid unless another qualifying payment still stands
+    const remaining = await strapi.db.query("api::payment.payment").count({
+      where: {
+        id: { $ne: payment.id },
+        user: payment.user?.id,
+        payment_status: "SUCCESS",
+        course: { documentId: { $in: QUALIFYING_COURSE_IDS } },
+      },
+    });
+
+    if (payment.user?.id && !remaining) {
+      await strapi.db.query('plugin::users-permissions.user').update({
+        where: { id: payment.user.id },
+        data: {
+          confirm_affiliate_payment: false,
+          affiliateJoinedAt: null,
+          level_5_commission_window_expiredAt: null,
+        },
+      });
+    }
+  },
+
+  async handleRefundApproved(refundId: number) {
+    const refund = await strapi.db.query("api::refund.refund").findOne({
+      where: { id: refundId },
+      populate: { payment: true, course: { populate: { payment: true } } },
+    });
+
+    // The student form links the refund to the purchased course, not directly to the payment
+    const payment = refund?.payment ?? refund?.course?.payment;
+    if (!payment || payment.payment_status === 'REFUNDED') return;
+
+    // Saving the status fires handlePaymentUpdate, which cancels the held commission
+    await strapi.db.query("api::payment.payment").update({
+      where: { id: payment.id },
+      data: { payment_status: 'REFUNDED' },
+    });
+  },
+
+  async hasOpenRefund(paymentId: number) {
+    // Refunds keep a draft and a published row; the draft always holds the latest decision
+    const open = await strapi.db.query("api::refund.refund").count({
+      where: {
+        refund_status: "pending",
+        publishedAt: { $null: true },
+        $or: [{ payment: paymentId }, { course: { payment: paymentId } }],
+      },
+    });
+
+    return open > 0;
+  },
+
+  // Credits commission whose hold has passed. An undecided refund keeps it on hold.
+  async releaseHeldCommissions() {
+    const now = new Date();
+    const due = await strapi.db.query("api::commission.commission").findMany({
+      where: {
+        transaction_for: "LEVEL_INCOME",
+        transaction_status: "PENDING",
+        estimated_credit_at: { $lte: now },
+      },
+      populate: { payment: true },
+    });
+
+    let released = 0;
+    for (const commission of due) {
+      if (commission.payment?.payment_status !== 'SUCCESS') continue;
+      if (await this.hasOpenRefund(commission.payment.id)) continue;
+
+      await strapi.db.query("api::commission.commission").update({
+        where: { id: commission.id },
+        data: {
+          credit: commission.amount,
+          transaction_status: "SUCCESS",
+          paidAt: now,
+        },
+      });
+      released++;
+    }
+
+    return released;
+  },
   // async distributeLevelCommission(childId: number) {
   //   // 1️⃣ Load config once
   //   const commissionConfig = await strapi

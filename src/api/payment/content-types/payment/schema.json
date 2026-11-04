@@ -130,6 +130,15 @@
     },
     "admin_comment": {
       "type": "string"
+    },
+    "verified_at": {
+      "type": "datetime"
+    },
+    "commissions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::commission.commission",
+      "mappedBy": "payment"
     }
   }
 }

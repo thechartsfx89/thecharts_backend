@@ -220,7 +220,14 @@ async getMyHistory(userId: number) {
   // 1. Fetch both datasets in parallel for better performance
   const [transactions, payouts] = await Promise.all([
     strapi.db.query("api::commission.commission").findMany({
-      where: { earner: userId, publishedAt: { $notNull: true } },
+      where: {
+        earner: userId,
+        publishedAt: { $notNull: true },
+        $or: [
+          { transaction_status: { $notIn: ["PENDING", "CANCELLED"] } },
+          { transaction_status: { $null: true } },
+        ],
+      },
       populate: { sourceUser: { select: ["id", "username"] } },
     }),
     strapi.db.query("api::payout.payout").findMany({
@@ -272,6 +279,10 @@ async getMyHistory(userId: number) {
           where: {
             earner: userId,
             publishedAt: { $notNull: true },
+            $or: [
+              { transaction_status: { $notIn: ["PENDING", "CANCELLED"] } },
+              { transaction_status: { $null: true } },
+            ],
           },
           orderBy: { createdAt: "desc" },
         });

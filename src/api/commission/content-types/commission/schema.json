@@ -41,7 +41,8 @@
         "SUCCESS",
         "FAILED",
         "PENDING",
-        "REJECTED"
+        "REJECTED",
+        "CANCELLED"
       ]
     },
     "earner": {
@@ -100,6 +101,15 @@
     },
     "tramount": {
       "type": "decimal"
+    },
+    "payment": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::payment.payment",
+      "inversedBy": "commissions"
+    },
+    "estimated_credit_at": {
+      "type": "datetime"
     }
   }
 }

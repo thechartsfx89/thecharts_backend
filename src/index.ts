@@ -389,36 +389,25 @@ export default {
 
     if (!fullPayment || !fullPayment.user) return;
 
-    const isSuccess = fullPayment.payment_status === 'SUCCESS';
-    const targetCourseIds = [
-      'yijrnm2mbfm4rxxm5mumf0gb',
-      'w7ru2um7ouxua9yxsw7c81i8',
-      's49yybok4tyc4hpb41m645rh',
-    ];
-
-    if (
-      isSuccess &&
-      fullPayment.course &&
-      targetCourseIds.includes(fullPayment.course.documentId)
-    ) {
-      try {
-        await strapi.db.query('plugin::users-permissions.user').update({
-          where: { id: fullPayment.user.id },
-          data: {
-            // Using .toISOString() often solves "Invalid key type" for dates
-            affiliateJoinedAt: new Date().toISOString(),
-            level_5_commission_window_expiredAt: new Date(Date.now() + 35 * 24 * 60 * 60 * 1000).toISOString(),
-            confirm_affiliate_payment: true,
-          },
-        });
-
-        await strapi.service("api::affiliate.affiliate").distributeLevelCommission(fullPayment.user.id);
-      } catch (err) {
-        console.error("❌ Failed to update user or distribute commission:", err.message);
-      }
-    }
+    await strapi.service("api::affiliate.affiliate").handlePaymentUpdate(fullPayment);
   },
 });
+
+    // Payments verified before the refund hold existed must not start a hold if an admin edits them later
+    await strapi.db.query("api::payment.payment").updateMany({
+      where: { payment_status: "SUCCESS", verified_at: { $null: true } },
+      data: { verified_at: new Date() },
+    });
+
+    strapi.db.lifecycles.subscribe({
+      models: ['api::refund.refund'],
+
+      async afterUpdate(event: any) {
+        if (event.result?.refund_status !== 'approved') return;
+
+        await strapi.service("api::affiliate.affiliate").handleRefundApproved(event.result.id);
+      },
+    });
 
     // strapi.db.lifecycles.subscribe({
     //   // Try using the specific model UID

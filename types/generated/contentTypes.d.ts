@@ -917,6 +917,7 @@ export interface ApiCommissionCommission extends Struct.CollectionTypeSchema {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
+    estimated_credit_at: Schema.Attribute.DateTime;
     level: Schema.Attribute.Integer;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -925,6 +926,7 @@ export interface ApiCommissionCommission extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     paidAt: Schema.Attribute.DateTime;
+    payment: Schema.Attribute.Relation<'manyToOne', 'api::payment.payment'>;
     publishedAt: Schema.Attribute.DateTime;
     regno: Schema.Attribute.String;
     remark: Schema.Attribute.String;
@@ -941,7 +943,7 @@ export interface ApiCommissionCommission extends Struct.CollectionTypeSchema {
       'api::transaction-history.transaction-history'
     >;
     transaction_status: Schema.Attribute.Enumeration<
-      ['SUCCESS', 'FAILED', 'PENDING', 'REJECTED']
+      ['SUCCESS', 'FAILED', 'PENDING', 'REJECTED', 'CANCELLED']
     >;
     transaction_type: Schema.Attribute.Enumeration<['CREDIT', 'DEBIT']>;
     transactionId: Schema.Attribute.BigInteger;
@@ -2148,6 +2150,10 @@ export interface ApiPaymentPayment extends Struct.CollectionTypeSchema {
     base_price: Schema.Attribute.Decimal;
     cgst: Schema.Attribute.Decimal;
     city: Schema.Attribute.String;
+    commissions: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::commission.commission'
+    >;
     course: Schema.Attribute.Relation<
       'manyToOne',
       'api::recorderd-lecture.recorderd-lecture'
@@ -2214,6 +2220,7 @@ export interface ApiPaymentPayment extends Struct.CollectionTypeSchema {
       'manyToOne',
       'plugin::users-permissions.user'
     >;
+    verified_at: Schema.Attribute.DateTime;
   };
 }
 
