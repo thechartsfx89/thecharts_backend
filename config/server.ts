@@ -5,10 +5,21 @@
 //     keys: env.array('APP_KEYS'),
 //   },
 // });
+const PRODUCTION_URL = 'https://api.thechartsfx.com';
+
+// server.url builds the "/" redirect and links in emails, so it must be the address visitors use.
+// A localhost value is only honoured under `strapi develop`, so a copied dev .env cannot break a deployed server.
+const resolvePublicUrl = (env) => {
+  const url = env('PUBLIC_URL', PRODUCTION_URL);
+  const isLocalUrl = /localhost|127\.0\.0\.1/.test(url);
+
+  return isLocalUrl && !process.argv.includes('develop') ? PRODUCTION_URL : url;
+};
+
 module.exports = ({ env }) => ({
   host: "0.0.0.0",
   port: env.int("PORT", 1338),
-    url: env('PUBLIC_URL', 'https://api.thechartsfx.com'),
+  url: resolvePublicUrl(env),
   app: {
     keys: env.array("APP_KEYS"),
   },
