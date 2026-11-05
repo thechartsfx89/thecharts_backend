@@ -52,7 +52,7 @@ const NEW_COURSES = [
     course_title: 'One-to-One Membership',
     regular_price: 199,
     course_price: 160,
-    course_desc: 'Personal membership with one-to-one access.',
+    course_desc: 'Personal membership with 6 one-to-one teaching sessions.',
   },
 ];
 
