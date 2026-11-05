@@ -105,7 +105,7 @@ export default {
           to: user.email,
           subject: "🎉 Welcome to EduCandle!",
           html: `<h2>Welcome ${user.username} 👋</h2>
-                 <p>Active affiliate account by purchase full course!</p>
+                 <p>Activate your affiliate account by purchasing the Advanced or Premium Course!</p>
                  <p>Note: After 35-day affiliate window expires on <b>${expiryDate.toDateString()}</b>.</p>`,
         });
       }

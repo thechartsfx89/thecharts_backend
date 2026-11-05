@@ -1,5 +1,7 @@
+import { formatMoney } from "../format-money";
+
 export const paymentSubmitTemplate = (
-   fullName:any, transactionId:any, amount:any, courseName:any, payment_mode:any
+   fullName:any, transactionId:any, amount:any, courseName:any, payment_mode:any, currency?:any
 ) => ({
   subject: `Payment Submitted - Transaction ID: ${transactionId}`,
   html: `
@@ -216,7 +218,7 @@ export const paymentSubmitTemplate = (
   <tr>
     <td style="padding:14px 16px; font-size:14px; color:#374151;">
       <p style="margin:6px 0;"><strong>Course Name:</strong> ${courseName ?? ""} </p>
-      <p style="margin:6px 0;"><strong>Payment Amount:</strong> ₹${amount ?? ""} </p>
+      <p style="margin:6px 0;"><strong>Payment Amount:</strong> ${formatMoney(amount, currency)} </p>
       <p style="margin:6px 0;"><strong>Payment Mode:</strong> ${payment_mode ?? ""} </p>
       <p style="margin:6px 0;"><strong>Transaction ID:</strong> ${transactionId ?? ""} </p>
       <p style="margin:6px 0;"><strong>Payment Status:</strong> Under Verification</p>

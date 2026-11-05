@@ -1,8 +1,11 @@
+import { formatMoney } from "../format-money";
+
 export const refundTemplate = (
   name: string,
   refundId: string,
   amount: number,
-  courseName: string
+  courseName: string,
+  currency?: string | null
 ) => ({
   subject: `Refund Request Received - Ref ID: ${refundId}`,
   html: `
@@ -75,7 +78,7 @@ export const refundTemplate = (
 
               <div class="details-box">
                 <div class="detail-row"><strong>Refund ID:</strong> ${refundId}</div>
-                <div class="detail-row"><strong>Amount:</strong> ₹${amount}</div>
+                <div class="detail-row"><strong>Amount:</strong> ${formatMoney(amount, currency)}</div>
                 <div class="detail-row"><strong>Course:</strong> ${courseName}</div>
               </div>
 

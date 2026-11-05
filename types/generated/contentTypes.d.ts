@@ -2161,6 +2161,7 @@ export interface ApiPaymentPayment extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    currency: Schema.Attribute.String;
     district: Schema.Attribute.String;
     email: Schema.Attribute.Email;
     gst: Schema.Attribute.Decimal;
@@ -2578,6 +2579,9 @@ export interface ApiRecorderdLectureRecorderdLecture
     draftAndPublish: true;
   };
   attributes: {
+    catalogue_key: Schema.Attribute.Enumeration<
+      ['foundation', 'advanced', 'premium', 'news_trading', 'one_to_one']
+    >;
     cgst: Schema.Attribute.Decimal;
     course_category: Schema.Attribute.Relation<
       'manyToOne',
@@ -2636,6 +2640,7 @@ export interface ApiRecorderdLectureRecorderdLecture
       'manyToOne',
       'api::quiz-score.quiz-score'
     >;
+    regular_price: Schema.Attribute.Decimal;
     sgst: Schema.Attribute.Decimal;
     teacher: Schema.Attribute.Relation<'manyToOne', 'api::teacher.teacher'>;
     thumbnail_img_path: Schema.Attribute.String;

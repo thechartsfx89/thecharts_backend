@@ -9,7 +9,8 @@ export default {
     courseName,
     amount,
     transactionId,
-    payment_mode
+    payment_mode,
+    currency
   }) {
     
     const template = paymentSubmitTemplate(
@@ -17,7 +18,8 @@ export default {
       transactionId,
       amount,
       courseName,
-      payment_mode
+      payment_mode,
+      currency
     );
 
     await strapi.plugin('email').service('email').send({

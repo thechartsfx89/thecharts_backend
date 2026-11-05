@@ -29,6 +29,9 @@
     "total_amount": {
       "type": "decimal"
     },
+    "currency": {
+      "type": "string"
+    },
     "payment_mode": {
       "type": "enumeration",
       "enum": [

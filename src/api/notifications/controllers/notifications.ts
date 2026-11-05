@@ -4,7 +4,7 @@ import payment from '../../payment/controllers/payment';
 export default {
    async paymentSubmitted(ctx: Context) {
     // const user = ctx.state.user;
-    const { courseName, amount, transactionId, email, fullName, payment_mode } = ctx.request.body;
+    const { courseName, amount, transactionId, email, fullName, payment_mode, currency } = ctx.request.body;
     console.log({ courseName, amount, transactionId, email, fullName, payment_mode }, ">>>>>>>>>>>>>", ctx.request.body)
     // if (!user || !user.email) {
     //   return ctx.badRequest('User not authenticated');
@@ -18,7 +18,8 @@ export default {
         courseName,
         amount,
         transactionId,
-        payment_mode
+        payment_mode,
+        currency
       });
 
     return ctx.send({

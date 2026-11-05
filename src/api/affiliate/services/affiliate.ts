@@ -1,6 +1,8 @@
 import { backfillLevelCommission, evaluateBonus, isDirectRouteEligible, resolveLiveMaxLevel, resolveUnlockedMaxLevel } from "../utils/bonus";
 
-// Courses whose verified payment counts as an admission
+// Only Advanced and Premium can be bought to become an affiliate
+const QUALIFYING_CATALOGUE_KEYS = ['advanced', 'premium'];
+// Retired courses stay listed so payments already made for them keep counting as admissions
 const QUALIFYING_COURSE_IDS = [
   'yijrnm2mbfm4rxxm5mumf0gb',
   'w7ru2um7ouxua9yxsw7c81i8',
@@ -363,7 +365,7 @@ async distributeLevelCommission(childId: number, paymentId?: number, verifiedAt:
       return;
     }
 
-    const qualifies = payment.course && QUALIFYING_COURSE_IDS.includes(payment.course.documentId);
+    const qualifies = payment.course && (QUALIFYING_COURSE_IDS.includes(payment.course.documentId) || QUALIFYING_CATALOGUE_KEYS.includes(payment.course.catalogue_key));
     if (payment.payment_status !== 'SUCCESS' || !qualifies) return;
 
     // Claiming verified_at means later edits to this payment cannot restart the hold or the windows
@@ -422,7 +424,7 @@ async distributeLevelCommission(childId: number, paymentId?: number, verifiedAt:
         id: { $ne: payment.id },
         user: payment.user?.id,
         payment_status: "SUCCESS",
-        course: { documentId: { $in: QUALIFYING_COURSE_IDS } },
+        course: { $or: [{ documentId: { $in: QUALIFYING_COURSE_IDS } }, { catalogue_key: { $in: QUALIFYING_CATALOGUE_KEYS } }] },
       },
     });
 

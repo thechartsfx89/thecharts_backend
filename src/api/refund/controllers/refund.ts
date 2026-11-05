@@ -43,8 +43,10 @@ export default factories.createCoreController("api::refund.refund", ({ strapi })
             const template = refundTemplate(
                 userName,
                 refundEntry.documentId,
-                refundEntry.course.course.course_price,
-                refundEntry.course.course.course_title
+                // The amount recorded at purchase, since the course price may have changed since
+                refundEntry.payment?.total_amount ?? refundEntry.course.course.course_price,
+                refundEntry.course.course.course_title,
+                refundEntry.payment?.currency
             );
 
             // 4️⃣ Send the email

@@ -149,6 +149,19 @@
     },
     "offline_course": {
       "type": "boolean"
+    },
+    "regular_price": {
+      "type": "decimal"
+    },
+    "catalogue_key": {
+      "type": "enumeration",
+      "enum": [
+        "foundation",
+        "advanced",
+        "premium",
+        "news_trading",
+        "one_to_one"
+      ]
     }
   }
 }
